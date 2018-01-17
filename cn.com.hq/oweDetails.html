@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>借条详情</title><!--借条详情-待对方确认-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+  <link rel="stylesheet" href="css/weuix.min.css"  />
+	<!--<link rel="stylesheet" href="css/jquery-weui.min.css"  />-->
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    		.cell-icon img{margin-right: .2rem;}
+	[class*=" icon-"]:before, [class^=icon-]:before {
+	    font-family: inherit;
+	    font-size: inherit;
+	}
+	/*.m-cell{margin-bottom: 0;}*/
+	.page-bd li{
+		margin: 0;
+		line-height: .9rem;
+	}
+	/*ul li:nth-of-type(odd) {
+    	background: #F0F0F0;
+	}*/
+	.icon{
+		color:rgb(153,153,153);
+		font-size: .4rem;
+		margin-left: .3rem;
+	}
+	.page-bd .weui-flex{
+		padding:0 .2rem;
+	}
+	.page-bd .weui-flex-item{
+		font-size: .28rem;
+		line-height: .4rem;
+    	color: rgb(51,51,51);
+    	padding-left: .1rem;
+	}
+	.page-bd li.js-show .weui-flex{
+		opacity:1;
+	}
+	.weui_article{
+		padding: 0;
+	}
+	.weui_article .weui-form-preview__bd{
+		margin-top: 0;
+	}
+	/*.weui_article {
+	    padding: .2rem .35rem .2rem .2rem;
+	    font-size: .25rem;
+	    color: #666;
+	}*/
+	/*.page-bd li.js-show .weui-flex{
+		background-color: #00A0E8;
+		opacity: 1;
+		color:#fff;
+	}*/
+	/*.page-bd li.js-show .icon{
+		color:#fff;
+	}
+	.cell-icon .sfrz,.cell-icon .zzhk{height:.55rem;}
+	.m-navbar{display: -webkit-box;display: box;}
+	.cell-item{background-color:#fff;}*/
+    	/*.warmPrompt{
+    		padding: .15rem .25rem;
+    		color: rgb(102,102,102);
+    	}
+    	.lamp-textAlign{
+    		text-align: center;
+    	}
+    	.lamp-textAlign img{
+    		display: inline-block;
+    		width: .6rem;
+    		margin: 0 .1rem;
+    	}
+    	.required{
+    		padding: .15rem .25rem;
+    		font-size: .25rem;
+    	}
+    	.m-cell{
+    		margin-bottom:0;
+    	}
+    	.m-button{
+    		padding: 0 .8rem .6rem .8rem;
+    	}
+    	.m-button button{
+    		border-radius: 0;
+    		height: .8rem;
+    		line-height: .8rem;
+    	}*/
+    	.oweDetails-name{
+    		background-color: #fff;
+    	/*	margin-bottom: .24rem;*/
+    	}
+    	.oweDetails-name .grids-item{
+    		padding: 0;
+    	}
+    	.oweDetails-name .grids-icon{
+    		height: .9rem;
+    	}
+    	.m-grids-2{
+    		margin-bottom: .24rem;
+    		border-top: 1px solid rgb(238,238,238);
+    	}
+    	.m-grids-2 .grids-item{
+    		margin: .1rem 0;
+    		padding: 0;
+    	}
+    	.m-grids-2 .grids-icon{
+    		height: .4rem;
+    	}
+    	.m-grids-2 .grids-txt{
+    		color: rgb(102,102,102);
+    	}
+    	.m-grids-2:before,.grids-item:after{
+    		border: 0;
+    	}
+    	.particulars .weui-form-preview__bd{
+    		background-color: #fff;
+		    margin-top: .24rem;
+		    font-size: .25rem;
+		    color: rgb(102,102,102);
+    	}
+    	.particulars .weui-form-preview__bd .color{
+    		color: rgb(51,51,51);
+    	}
+    	.particulars .weui-form-preview__bd .color-notarize{
+    		color: rgb(248,107,18);
+    	}
+    	.particulars .particulars-btn p{
+    		text-align: center;
+		    font-size: .3rem;
+		    color: rgb(153,153,153);
+		    margin-top: .24rem;
+    	}
+    	.particulars .particulars-btn p span{
+    		color:rgb(16,142,233);
+    	}
+    	.particulars .weui_article .weui-form-preview__bd{
+    		margin-top: 0;
+    	}
+    	.particulars .weui_article .weui-form-preview__bd .color-notarize{
+    		color: rgb(16,142,233);
+    	}
+		.btn-disabled {
+			display: inline-block;
+			width: 47%;
+			margin-top: 0;
+			/*border: 1px solid rgb(16, 142, 233);*/
+			/*background-color: rgb(16, 142, 233);*/
+			height: .8rem;
+    		line-height: .8rem;
+		}
+		.generate {
+			margin-left: .25rem;
+			background-color: rgb(16, 142, 233);
+		}
+		.m-button {
+			/*position: absolute;*/
+			bottom: .5rem;
+			width: 100%;
+			margin: 1rem 0 1rem 0;
+		}
+		.sampleReport {
+			color: rgb(16, 142, 233);
+			background-color: #fff;
+			border: 1px solid rgb(16, 142, 233);
+		}
+		
+		.particulars-paid .m-button,.particulars-collection .m-button{/*待还 按钮样式*/
+			text-align: center;
+			margin: .5rem 0 1rem 0;
+		}
+		.particulars-paid .m-button .btn-disabled,.particulars-collection .m-button .btn-disabled{
+			width: 65%;
+		    background-color: rgb(246,246,246);
+		    height: .7rem;
+		    line-height: .7rem;
+		    font-size: .3rem;
+		    margin-bottom: .4rem;
+		}
+		.particulars-paid .m-button .complain{
+			width: 35%;
+		}
+		.particulars-paid .m-button .generate,.particulars-collection .m-button .generate{
+			background-color: rgb(16, 142, 233);
+			height: .9rem;
+		    line-height: .9rem;
+		    width: 90%;
+		    font-size: .36rem;
+		}
+		
+		.particulars-collection .m-button{
+			margin: 1rem 0 1rem 0;
+		}
+		.particulars .weui-form-preview__bd .paid-color{/*待还颜色*/
+			color:rgb(240,43,43);
+		}
+		.particulars .weui-form-preview__bd .due-color{/*待还颜色*/
+			color:rgb(37,160,144);
+		}
+		.character-color{
+			color: rgb(240,43,43);
+		}
+		.btn-disabled{/*按钮点击*/
+			pointer-events: inherit;
+		}
+		.mask-black-dialog .confirm-hd,.mask-black-dialog .confirm-bd{/*弹出框*/
+			text-align: center;
+		}
+		.m-confirm{
+			border-radius: .15rem;
+		}
+    </style>
+    
+</head>
+<body ontouchstart class="particulars">
+    <div class="weui-cell oweDetails-name">
+			<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+				<img src="img/portrait@3x.png" style="width: 50px;display: block;border-radius: .5rem;">
+			</div>
+			<div class="weui-cell__bd">
+				<p>张三</p>
+				<p style="font-size: 13px;color: #888888;">15711111222</p>
+			</div>
+			<a href="#" class="">
+		        <div class="grids-icon"><img src="img/report-tu@3x.png"></div>
+		   </a>
+	</div>
+	<div class="m-grids-2">
+	    <a href="#" class="grids-item">
+	        <div class="grids-icon"><span>110.00</span></div>
+	        <div class="grids-txt"><span>待收金额(元)</span></div>
+	    </a>
+	    <a href="#" class="grids-item">
+	        <div class="grids-icon"><span>0.00</span></div>
+	        <div class="grids-txt"><span>待还金额(元)</span></div>
+	    </a>
+	</div>
+    <div class="page-bd">  
+         <ul>
+            <li class=""><!--折叠面板-->
+                <div class="weui-flex js-category">
+                    <p class="weui-flex-item">借款内容</p>
+                    <i class="icon icon-74"></i>
+                </div>
+                <div class="page-category js-categoryInner"><!--折叠面板 内容-->
+                
+                    <div class="weui_cells weui_cells_access" style="margin-top: 0px;">
+                   		<div class="weui_article">
+                   			<div class="weui-form-preview__bd">
+				                <div class="weui-form-preview__item">
+				                    <label class="weui-form-preview__label">借款人</label>
+				                    <span class="weui-form-preview__value color">李四</span>
+				                    <label class="weui-form-preview__label">出借人</label>
+				                    <span class="weui-form-preview__value color ">张三</span>
+				                    <label class="weui-form-preview__label">借款金额</label>
+				                    <span class="weui-form-preview__value color">110.00</span>
+				                    <label class="weui-form-preview__label">年利率</label>
+				                    <span class="weui-form-preview__value color">12%</span>
+				                    <label class="weui-form-preview__label">还款时长</label>
+				                    <span class="weui-form-preview__value color">4个月</span>
+				                    <label class="weui-form-preview__label">借款用途</label>
+				                    <span class="weui-form-preview__value color">消费</span>
+				                    <label class="weui-form-preview__label">补充协议</label>
+				                    <span class="weui-form-preview__value color-notarize"><a href="javascript:;">点击查看</a></span>
+				                    <label class="weui-form-preview__label">借款协议</label>
+				                    <span class="weui-form-preview__value color-notarize"><a href="javascript:;">点击查看</a></span>
+				            	</div>
+							</div>
+                   		</div>   
+        			</div>
+                    
+                </div>
+            </li>
+     </ul>
+    </div> 
+    <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">借条ID</label>
+                    <span class="weui-form-preview__value color">99201928374872927339839374893</span>
+                    <label class="weui-form-preview__label">状态</label>
+                    <span class="weui-form-preview__value color color-notarize">等待确认</span>
+                    <label class="weui-form-preview__label">借款类型</label>
+                    <span class="weui-form-preview__value color">线下</span>
+                    <label class="weui-form-preview__label">借款日期</label>
+                    <span class="weui-form-preview__value color">2017-05-01</span>
+                    <label class="weui-form-preview__label">还款日期</label>
+                    <span class="weui-form-preview__value color">2017-01-01</span>
+                    <label class="weui-form-preview__label">生成日期</label>
+                    <span class="weui-form-preview__value color">2017-01-01</span>
+            	</div>
+	</div>
+	
+	<div class="weui-form-preview__bd paid-collectionDisplay"><!--待收 待付  显示/隐藏-->
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">待还本金</label>
+                    <span class="weui-form-preview__value color">0.00元</span>
+                    <label class="weui-form-preview__label">待还利息</label>
+                    <span class="weui-form-preview__value color">0.00元</span>
+                    <label class="weui-form-preview__label">待还服务费</label>
+                    <span class="weui-form-preview__value color">0.00元</span>
+            	</div>
+	</div>
+	<div class="weui-form-preview__bd paid-collectionDisplay"><!--待收 待付  逾期 滞纳金 显示/隐藏-->
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">逾期天数</label>
+                    <span class="weui-form-preview__value color"><span class="character-color">3</span> 天</span>
+                    <label class="weui-form-preview__label">滞纳金</label>
+                    <span class="weui-form-preview__value color">0.00元</span>
+            	</div>
+	</div>
+	
+	<div class="particulars-btn" id="">
+		<div class="confirmed">
+			<p>距还款日还有 <span>120</span> 天<br />剩余确认期 <span>1</span> 天</p>
+			<div class="m-button"><!--待我确认  btn-->
+					<button type="button" class="btn-block btn-disabled sampleReport" id="reject">驳回</button>
+				    <button type="button" class="btn-block btn-disabled generate" id="formSubitBtn">同意借条</button>
+			</div>
+			<div class="m-button"><!--待对方确认  btn-->
+					<button type="button" class="btn-block btn-disabled sampleReport" id="formSubitBtn">关闭借条</button>
+				    <button type="button" class="btn-block btn-disabled generate" id="formSubitBtn">发送给对方</button>
+				    
+			</div>
+		</div>
+		<div class="particulars-paid">
+			<p>距还款日还有 <span>120</span> 天</p>
+			<div class="m-button">
+				    <button type="button" class="btn-block btn-disabled sampleReport" id="formSubitBtn">我已还款，通知对方销单</button>
+				    <button type="button" class="btn-block btn-disabled sampleReport complain" id="formSubitBtn">申诉</button>
+				    <button type="button" class="btn-block btn-disabled generate" id="formSubitBtn">去还款</button>
+			</div>
+		</div>
+		<div class="particulars-collection">
+			<p>距还款日还有 <span>120</span> 天</p>
+			<div class="m-button">
+				    <button type="button" class="btn-block btn-disabled sampleReport" id="formSubitBtn">收到还款，完结借条</button>
+				    <button type="button" class="btn-block btn-disabled generate" id="formSubitBtn">去还款</button>
+			</div>
+		</div>
+	</div>
+
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        
+        
+        $('.js-category').click(function(){/*折叠 */
+			$parent = $(this).parent('li');
+		   if($parent.hasClass('js-show')){
+                        $parent.removeClass('js-show');
+                        $(this).children('i').removeClass('icon-35').addClass('icon-74');
+                    }else{
+                        $parent.siblings().removeClass('js-show');
+                        $parent.addClass('js-show');
+                        $(this).children('i').removeClass('icon-74').addClass('icon-35');
+                         $parent.siblings().find('i').removeClass('icon-35').addClass('icon-74');
+                    }
+		  }); 
+		/*  弹出框*/
+        $('#reject').on('click', function () {
+            dialog.confirm('确认驳回借条', '驳回后，该借条将会马上删除，不能再操作。确认驳回该借条吗？', [
+                {
+                    txt: '取消',
+                    color: false, 
+                    callback: function () {
+                       /* dialog.toast('你点了取消', 'none', 1000);*/
+                    }
+                },
+                {
+                    txt: '确认驳回',
+                    color: "rgb(16,142,233)",
+                    callback: function () {
+                        dialog.toast('你点了确定', 'none', 1000);
+                    }
+                }
+            ]);
+        });
+		/* */
+		 
+		  
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

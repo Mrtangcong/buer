@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料</title><!--个人资料  页面-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+<!--	<link rel="stylesheet" href="css/jquery-weui.min.css"  />-->
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.personalData .m-cell{
+    		margin-top: .24rem;
+    	}
+    	.personalData .cell-arrow>img{
+    		width: .4rem;
+    	}
+    </style>
+    
+</head>
+<body ontouchstart class="personalData">
+	<div class="m-cell">
+	    <div class="cell-item">
+	        <div class="cell-left">基本信息</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </div>
+	    <div class="cell-item">
+	        <div class="cell-left">二维码</div>
+	        <div class="cell-right cell-arrow"><img src="img/ewm@3x.png"></div>
+	    </div>
+	    <div class="cell-item">
+	        <div class="cell-left">信用评级</div>
+	        <div class="cell-right cell-arrow">A</div>
+	    </div>
+	</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

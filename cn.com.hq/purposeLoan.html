@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>借款用途</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.warmPrompt{
+    		padding: .15rem .25rem;
+    		color: rgb(102,102,102);
+    	}
+    	.weui-flex__item {
+		    text-align: center;
+		 /*   border: 1px solid rgb(221,221,221);*/
+		    margin: .2rem .1rem 0 .15rem;
+		  /*  border-radius: .1rem;*/
+			}
+			.placeholder{
+				padding: .3rem;
+				border: 1px solid rgb(221,221,221);
+    		border-radius: .1rem;
+			}
+			.placeholder-click{
+				background-color: rgb(16,142,233);
+		    border: 1px solid rgb(16,142,233);
+		    color: #fff;
+			}
+			.page__bd_spacing{
+				background-color: #fff;
+    		padding-bottom: .25rem;
+			}
+			.weui-textarea{
+				font-size: .2rem;
+				color: rgb(153,153,153);
+			}
+			.weui-cells_form{
+				margin-top: 0;
+			}
+			.weui-cells_form .weui-cell{
+				padding: .2rem .2rem;
+			}
+			.weui-textarea-counter{
+				font-size: .2rem;
+			}
+			.m-button{
+				margin: 0 .5rem;
+				padding-right: 0;
+			}
+			.btn-disabled{
+				border-radius: initial;
+			}
+/*    	.lamp-textAlign{
+    		text-align: center;
+    	}
+    	.lamp-textAlign img{
+    		display: inline-block;
+    		width: .6rem;
+    		margin: 0 .1rem;
+    	}
+    	.required{
+    		padding: .15rem .25rem;
+    		font-size: .25rem;
+    	}
+    	.m-cell{
+    		margin-bottom:0;
+    	}
+    	.m-button{
+    		padding: 0 .8rem .6rem .8rem;
+    	}
+    	.m-button button{
+    		border-radius: 0;
+    		height: .8rem;
+    		line-height: .8rem;
+    	}*/
+    </style>
+    
+</head>
+<body ontouchstart>
+  <p class="warmPrompt">借款说明(必选)</p>
+  <div class="page__bd page__bd_spacing">
+	  <div class="weui-flex">
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="个体经营">个体经营</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="hei">个体经营</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="消费">个体经营</div></div>
+	  </div>
+	  <div class="weui-flex">
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="dsdd">个体经营</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="ss">个体经营</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="22">个体经营</div></div>
+	  </div>
+	  <div class="weui-flex">
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="333">个体经营</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="444">个体经营</div></div>
+	    <div class="weui-flex__item"><div class="placeholder" tabindex="555">个体经营</div></div>
+	  </div>
+	</div>
+	<p class="warmPrompt">补充说明(选填)</p>
+	<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="具体说明您的借款用途或者证明您的还款能力" rows="3"></textarea>
+        <div class="weui-textarea-counter"><span>0</span>/200</div>
+        </div>
+    </div>
+  </div>
+  <p class="warmPrompt">交易凭证(最多9张，选填)</p>
+  
+  <div class="page"><!--图片上传-->
+		    <!--<div class="page__hd">
+		        <h1 class="page__title">Uploader</h1>
+		        <p class="page__desc">上传组件，一般配合<a class="link" href="#gallery">组件Gallery</a>来使用。</p>
+		    </div>-->
+		    <div class="page__bd">
+		        <div class="weui-gallery" id="gallery">
+		            <span class="weui-gallery__img" id="galleryImg"></span>
+		            <div class="weui-gallery__opr">
+		                <a href="javascript:" class="weui-gallery__del">
+		                    <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+		                </a>
+		            </div>
+		        </div>
+		
+		        <div class="weui-cells weui-cells_form">
+		            <div class="weui-cell">
+		                <div class="weui-cell__bd">
+		                    <div class="weui-uploader">
+		                        <div class="weui-uploader__bd">
+		                            <ul class="weui-uploader__files" id="uploaderFiles">
+		                                <!--<li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+		                                <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+		                                <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+		                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(./images/pic_160.png)">
+		                                    <div class="weui-uploader__file-content">
+		                                        <i class="weui-icon-warn"></i>
+		                                    </div>
+		                                </li>
+		                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(./images/pic_160.png)">
+		                                    <div class="weui-uploader__file-content">50%</div>
+		                                </li>-->
+		                            </ul>
+		                            <div class="weui-uploader__input-box">
+		                                <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple/>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <!--<div class="page__ft">
+		        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+		    </div>-->
+		</div>
+		<div class="m-button">
+	      <button type="button" class="btn-block btn-disabled" id="formSubitBtn">保存</button>
+	  	</div>
+<!--	<div class="m-button">
+	    <button type="button" class="btn-block btn-disabled" id="formSubitBtn">生成报告</button>
+	</div>-->
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+    var dialog = win.YDUI.dialog;
+    var explain="";
+    $(".placeholder").on("click",function(){
+    	$(".placeholder").removeClass("placeholder-click");
+    	$(this).toggleClass('placeholder-click');
+    	console.log($(this).attr('tabindex'));
+    /*	for(var i=0; i<$(".placeholder").length;i++){
+	    	if($(this).is('.placeholder-click')){
+	    		console.log('you');
+	    		console.log($(this).attr('tabindex'));
+	    	}else{
+	    		console.log('mei');
+	    	}
+	    }*/
+	   	$("#formSubitBtn").css('background-color','rgb(16,142,233)');
+    });
+    console.log($(".placeholder").length);
+    
+    $(function(){ ///图片上传
+        var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+            $uploaderInput = $("#uploaderInput"),
+            $uploaderFiles = $("#uploaderFiles")
+            ;
+
+        $uploaderInput.on("change", function(e){
+            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+
+                if (url) {
+                    src = url.createObjectURL(file);
+                } else {
+                    src = e.target.result;
+                }
+
+                $uploaderFiles.append($(tmpl.replace('#url#', src)));
+            }
+        });
+       /* $uploaderFiles.on("click", "li", function(){
+            $galleryImg.attr("style", this.getAttribute("style"));
+            $gallery.fadeIn(100);
+        });*/
+        var index; //第几张图片
+        $uploaderFiles.on("click", "li", function() {
+          index = $(this).index();
+          $galleryImg.attr("style", this.getAttribute("style"));
+          $gallery.fadeIn(100);
+        });
+        $gallery.on("click", function(){
+            $gallery.fadeOut(100);
+        });
+        //删除图片 删除图片的代码也贴出来。
+        $(".weui-gallery__del").click(function() { //这部分刚才放错地方了，放到$(function(){})外面去了
+          console.log('删除');
+          $uploaderFiles.find("li").eq(index).remove();
+        });
+    });    
+        
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

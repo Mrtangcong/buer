@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>绑定银行卡</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+    <link rel="stylesheet" href="css/weixin.min.css"  />
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+	    ::-webkit-input-placeholder { /* WebKit browsers */ 
+		color: rgb(204,204,204); 
+		} 
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+		color: rgb(204,204,204); 
+		} 
+		::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+		color: rgb(204,204,204); 
+		} 
+		:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+		color: rgb(204,204,204); 
+		}  
+    	.bindBankCard .step ul{
+    		justify-content: space-around;
+    		display: flex;
+    	}
+    	.bindBankCard .step li{
+    		display: inline-flex;
+    		flex-direction: column;
+    		padding: .2rem .2rem;
+    		text-align: center;
+    	}
+    	.bindBankCard .step li i{
+    		background-color: rgb(216,216,216);
+		    display: inline-flex;
+		    justify-content: center;
+		    /* text-align: -webkit-match-parent; */
+		    width: 20px;
+		    border-radius: 2rem;
+		    color: #fff;
+		    margin-bottom: .1rem;
+    	}
+    	.bindBankCard .step li p{
+    		color: rgb(216,216,216);
+    	}
+    	.bindBankCard .step .step-line{
+    		border-bottom: 1px solid rgb(216,216,216);
+		    position: relative;
+		    top: -.3rem;
+		    left: 1.3rem;
+    		width: 1.5rem;
+    	}
+    	.bindBankCard .step .step-line2{
+    		left: inherit;
+    		right: 1.3rem;
+    	}
+    	.bindBankCard .step li .color{
+    		background-color: rgb(16,142,233);
+    	}
+    	.bindBankCard .step li .step-txt1{
+    		color: rgb(16,142,233);
+    	}
+    	.step{
+    		background-color:#fff;
+    		margin-bottom: .24rem;
+    	}
+    	.bindBankCard .m-cell .cell-left{
+    		width: 1.2rem;
+    	}
+    	.bindBankCard>p{
+    		padding: 0 .25rem;
+		    font-size: .3rem;
+		    color: rgb(153,153,153);
+    	}
+    	.m-button {
+    		margin: .8rem .5rem 0;
+    		padding: 0;
+    	}
+    	
+    	.btn-disabled {
+		    border-radius: .1rem;
+		    height: .9rem;
+		    line-height: .9rem;
+    	}
+    	.Bank{
+    		padding-right: .24rem;
+    		
+    	}
+    	.Bank a{
+    		color: rgb(16,142,233);
+    		font-size: .3rem;
+    	}
+    	.Bank:not(:last-child):after{
+    		border-bottom:0;
+    	}
+    	
+    	
+    	/*上拉弹出*/
+    	.toolbar .toolbar-inner{
+    		height: 1rem;
+    	}
+    	.weui-popup__modal .modal-content{
+    		padding-top: 1rem;
+    	}
+    	.bindBankCard .toolbar .toolbar-inner .close-popup,.bindBankCard .toolbar .toolbar-inner .title{
+    		height: 1rem;
+		    font-size: .36rem;
+		    line-height: 1rem;
+		    right: inherit;
+    	}
+    	.bindBankCard .modal-content .weui-grids{
+    		max-height: 5rem;
+    		overflow: inherit;
+    		background-color: rgb(246,246,246);
+    	}
+    	.bindBankCard .weui-popup__modal .toolbar{
+    		background-color: #fff;
+    	}
+    	.bindBankCard .toolbar .toolbar-inner .close-popup{
+    		color: rgb(153,153,153);
+		    font-size: .8rem;
+		    /* font-weight: 100; */
+		    padding-left: .2rem;
+
+    	}
+    </style>
+    
+</head>
+<body ontouchstart class="bindBankCard">
+	<div class="step">     	
+                <ul>
+                    <li class=" ">
+                        <span class="num"><i class="color">1</i></span>                	
+                        <a class="step-line"></a>
+                        <p class="step-txt1">添加储蓄卡</p>
+                    </li>
+                    <li class="">
+                        <span class="num"><i>2</i></span>
+                        
+                        <p class="step-txt2">填写储蓄卡信息</p>
+                    </li>
+                    <li class="">
+                        <span class="num"><i>3</i></span>
+                        <a class="step-line step-line2"></a>
+                        <p class="step-txt3">验证手机号</p>
+                        
+                    </li>
+                </ul>
+	</div>
+	<div class="m-cell">
+		    <div class="cell-item">
+		        <div class="cell-left left">持卡人 </div>
+		        <div class="cell-right">
+		        	<input type="text" class="cell-input input-padding" required placeholder="请输入本人姓名" autocomplete="off" />
+		        	<!-- <a href="javascript:;"><img src="../images/guanbi.png" /></a> -->
+		        <!-- 	<a href="javascript:;" class="clear" id="qsgxxm_qk"></a> -->
+		    		</div>
+				</div>
+				<div class="cell-item">
+			        <div class="cell-left left">身份证号 </div>
+			        <div class="cell-right">
+			        	<input type="text" class="cell-input input-padding" required placeholder="请输入本人身份证号" autocomplete="off" />
+			        	<!-- <a href="javascript:;"><img src="../images/guanbi.png" /></a> -->
+			        <!-- 	<a href="javascript:;" class="clear" id="qsgxxm_qk"></a> -->
+			    		</div>
+				</div>
+				<div class="cell-item">
+			        <div class="cell-left left">银行卡号 </div>
+			        <div class="cell-right">
+			        	<input type="tel" class="cell-input input-padding" required placeholder="请输入银行卡号" autocomplete="off" />
+			        	<!-- <a href="javascript:;"><img src="../images/guanbi.png" /></a> -->
+			        <!-- 	<a href="javascript:;" class="clear" id="qsgxxm_qk"></a> -->
+			    		</div>
+				</div>
+	</div>
+	<p>提示：请输入本人银行卡信息，与实名认证信息保持一致</p>
+	<div class="m-button">
+	      <button type="button" class="btn-block btn-disabled" id="formSubitBtn">下一步</button>
+	</div>
+	<div class="cell-item Bank">
+		<div class="cell-right">
+			<a href="javascript:;" class="open-popup" data-target="#half">支持银行</a>
+		</div>
+	</div>
+	<!--<div class="demos-content-padded">-->
+    <!--  <a href="javascript:;" class="weui-btn weui-btn_primary open-popup" data-target="#half">显示底部的Popup</a>-->
+    <!--</div>-->
+    
+    <div id="half" class='weui-popup__container popup-bottom'>
+      <div class="weui-popup__overlay"></div>
+      <div class="weui-popup__modal">
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <a href="javascript:;" class="picker-button close-popup">×</a>
+            <h1 class="title">支持银行及限额</h1>
+          </div>
+        </div>
+        <div class="modal-content">
+          <div class="weui-grids">
+            	<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: .6rem;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">建设银行</p>
+								<p style="color:#888888;">单笔5万，日累计500万</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: .6rem;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">建设银行</p>
+								<p style="color:#888888;">单笔5万，日累计500万</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: .6rem;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">建设银行</p>
+								<p style="color:#888888;">单笔5万，日累计500万</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: .6rem;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">建设银行</p>
+								<p style="color:#888888;">单笔5万，日累计500万</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: .6rem;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">建设银行</p>
+								<p style="color:#888888;">单笔5万，日累计500万</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: .6rem;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">建设银行</p>
+								<p style="color:#888888;">单笔5万，日累计500万</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+				</div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+      /*  弹出框*/
+        $('#recharge').on('click', function () {
+            dialog.confirm('提示', '出于银行风控要求，您需要先关联储蓄卡，并开通银联在线支付功能，才能进行交易。', [
+                {
+                    txt: '取消',
+                    color: false, 
+                    callback: function () {
+                       /* dialog.toast('你点了取消', 'none', 1000);*/
+                    }
+                },
+                {
+                    txt: '关联储蓄卡',
+                    color: "rgb(16,142,233)",
+                    callback: function () {
+                      /*  dialog.toast('你点了确定', 'none', 1000);*/
+                    // window.location.href=""
+                    }
+                }
+            ]);
+        });
+		/* */
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

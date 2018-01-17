@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>线下还款</title><!--线下还款页面-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+<!--	<link rel="stylesheet" href="css/jquery-weui.min.css"  />-->
+    
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    .wenzi{
+    		text-align: center;
+    		padding: .2rem 0;
+    	}
+	::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: rgb(204,204,204); 
+	} 
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: rgb(204,204,204); 
+	} 
+	::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: rgb(204,204,204); 
+	} 
+	:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: rgb(204,204,204); 
+	}
+	
+	.weui-picker-modal .picker-button{
+		color: #00a0e9;
+		font-size: initial;
+	  height: .5rem;
+	  line-height: 0.8rem;
+	}  
+	.dayu{
+		 width: 12px;
+		  height: 12px;
+		  position: absolute;
+		  top:.5rem;
+		  border-left: 1px solid #999;
+		  border-bottom: 1px solid #999;
+		  -webkit-transform: translate(0,-50%) rotate(-135deg);
+		  transform: translate(0,-50%) rotate(-135deg);
+	}
+	.cell-input {
+	    text-align: right;
+	    margin: 0;
+	    color: rgb(51,51,51);
+	}
+	.m-button{
+		padding: .15rem .7rem;
+	}
+	.generate{
+			background-color: rgb(16, 142, 233);
+			color: #fff;
+			height: .9rem;
+			line-height: .9rem;
+		}
+    </style>
+    
+</head>
+<body ontouchstart>
+		<div class="m-cell m-cellMargin">
+				<div class="cell-item">
+		        <div class="cell-left left">借款金额 </div>
+		        <div class="cell-right">
+		        	<input type="text" class="cell-input input-padding" required placeholder="不超过55.00" autocomplete="off" />
+		        	<!-- <a href="javascript:;"><img src="../images/guanbi.png" /></a> -->
+		        <!-- 	<a href="javascript:;" class="clear" id="qsgxxm_qk"></a> -->
+		        	<span class="yuan">
+		        		元
+		        	</span>
+		    		</div>
+				</div>
+		</div>
+		<div class="m-cell">
+		    <div class="cell-item iAm">
+		        <div class="cell-left">我是</div>
+		        <div class="cell-right">
+		        	<input type="text" class="cell-input my" placeholder="请选择" autocomplete="off" id="qsgx"/>
+		        	<!--<span class="xlk_qxz">请选择 &nbsp;</span><img src="../images/xiajiantou@2x.png" class="qxz">-->
+		        	<span class="dayu">
+		        		
+		        	</span>
+		        </div>
+		    </div>
+		</div>
+		<div class="m-button">
+	      <button type="button" class="btn-block generate" id="formSubitBtn">我已还款，通知对方销单</button>
+	 	</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	  $(function(){
+    
+        $('#qsgx').on('click', function () {
+	        weui.picker([{
+	            label: '支付宝',
+	            value: "支付宝"
+	        }, {
+	            label: '微信',
+	            value: '微信'
+	        }], {
+            onChange: function (result) {
+                console.log(result);
+                
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                $("#qsgx").val(result);
+            }
+        });
+    });
+});
+	  
+	 
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

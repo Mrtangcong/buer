@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>米小二</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+/*  求借款   */
+.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {
+    color: rgb(16,142,233);
+}
+.weui-tabbar__icon{
+	width: .5rem;
+	height: .5rem;
+}
+.slider-pagination>.slider-pagination-item{
+	background-color: #fff;
+	width: 4px;
+  height: 4px;
+}
+.slider-pagination>.slider-pagination-item.slider-pagination-item-active{
+    background-color: #fff;
+    width: .4rem;
+    border-radius: .1rem;
+}
+.weui-flex{
+	    padding: .25rem .35rem;
+    /* line-height: 1rem; */
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+.cell-icon img {
+    height: .7rem;
+    margin-right: .5rem;
+}
+.receipt-borderRight{
+	border-right: 1px solid #ccc;
+}
+.friend-borderLeft{
+	padding-left: .5rem;
+}
+.m-slider,.slider-item img{
+	height: 3.6rem;
+}
+
+/*公告轮播*/
+div,ul,li{margin: 0;padding: 0}/*先初始化一下默认样式*/
+.notice {
+ width: 100%;/*单行显示，超出隐藏*/
+ height: .7rem;/*固定公告栏显示区域的高度*/
+ padding: 0 .2rem 0 1rem;
+ background-color: #fff;
+ overflow: hidden;
+ 
+ position: relative;
+ margin-bottom: .25rem;
+}
+.notice ul li {
+ list-style: none;
+ line-height: .7rem;
+ /*以下为了单行显示，超出隐藏*/
+ display: block;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ overflow: hidden;
+}
+.notice-tu{
+	  display: inline-block;
+    width: .4rem;
+    position: absolute;
+    /* line-height: .8rem; */
+    /* height: .8rem; */
+    top: .15rem;
+    left: .3rem;
+}
+.test1{
+    height: 0;
+    border-right: .15rem solid transparent;
+    border-bottom: .2rem solid rgb(16,142,233);
+    border-left: .15rem solid transparent;
+}
+.test2{
+	  height: 0;
+    border-left: .15rem solid transparent;
+    border-right: .15rem solid transparent;
+    border-top: .2rem solid rgb(16,142,233);
+}
+.rank-tu{
+	width: .7rem;
+	padding-right: .3rem;
+    border-right: 1px solid #ccc;
+}
+.filtrate-tu{
+	width: .3rem;
+}
+.oneself{
+	padding-right: .3rem;
+ /*   border-right: 1px solid #ccc;*/
+}
+.span-padding{
+	padding-left: .2rem;
+}
+ .oneself:after {
+    content: '';
+    position: absolute;
+    left: auto;
+    top: auto;
+    /* right: .3rem; */
+    height: 50%;
+    width: 1px;
+    background-color: #ccc;
+    margin-left: .3rem;
+    }
+.raiseFunds .cell-item{
+	height: .7rem;
+}
+.raiseFunds .cell-right{
+	height: .7rem;
+	min-height: .7rem;
+}
+.frame{
+	margin: 0 .2rem;
+	height: 2.5rem;
+	margin-bottom: .25rem;
+}
+.frame:after,.m-grids-3 .grids-item:not(:nth-child(3n)):before,.m-grids-2:before, .m-grids-3:before, .m-grids-4:before, .m-grids-5:before,.headPortrait:not(:last-child):after,.grids-item:after{
+	border: none;
+}
+.headPortrait{
+	padding-left: .5rem;
+	padding-top: .25rem;
+}
+.headPortrait .cell-left img{
+	border-radius: 1rem;
+	margin-right: 0rem;
+}
+.headPortrait .cell-right img{
+	margin: 0;
+    height: .5rem;
+}
+.grids-item{
+	padding: .1rem 0;
+}
+.colour{
+	color:rgb(248,107,18);
+}
+.grids-txt span{
+	font-size: .22rem;
+}
+.frame>img{
+	position: absolute;
+    /* display: inline-block; */
+    z-index: 10;
+    width: .8rem;
+}
+.xm{
+	position: absolute;
+    left: 1.4rem;
+    top: .35rem;
+}
+.sjh-phone{
+	position: absolute;
+    left: 1.35rem;
+    top: .8rem;
+}
+.pleaseBorrow{
+	border: 1px solid rgb(16,142,233);
+    font-size: .2rem;
+    padding: .05rem .1rem;
+    color: rgb(16,142,233);
+    margin-left: .2rem;
+}
+.headPortrait .cell-right .time-tu{
+	width: .25rem;
+    height: .25rem;
+   
+}
+.headPortrait .cell-right{
+	position: relative;
+    top: -.15rem;
+}
+.time-character{
+	margin-left: .05rem;
+	font-size: .2rem;
+	color: rgb(153,153,153);
+}
+.apply{
+	margin-left:0;
+}
+.time-character>span{
+	color:rgb(16,142,233);
+}
+.footer{
+	height: 1.5rem;
+}
+.weui-tabbar__icon{/*底部导航*/
+	width: .35rem;
+    height: .35rem;
+}
+/*  求借款   */
+
+/*  取出借 */
+
+/*  取出借 */
+
+/*  工具 */
+
+/*  工具 */
+
+/*  我的 */
+.personalCenterUser{/*未登录css*/
+	background-color: #fff;
+	margin-bottom: .2rem;
+}
+.personalCenter-margin img{
+	margin-right: .1rem;
+}
+
+.register{/*已登录css*/
+	padding-right: .09rem;
+}
+.register .weui-cell__bd{
+	width: 40%;
+  display: inline-table;
+}
+.register:before{
+	border-top:none;
+}
+.QR{
+	width: .4rem;
+	margin-right: .15rem;
+}
+.register .cell-arrow span{
+	color: rgb(153,153,153);
+}
+.register .remaining{
+	width: 91%;
+}
+.register .cell-arrow{
+	/*padding-right: 0;*/
+}
+.wallet-margin{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.wallet-arrows{
+	max-width: .5rem;
+	position: absolute;
+	right: -.025rem;
+}
+.yuan{
+	font-size: .52rem;
+}
+.register .paid,.register .due{
+	  background-color: rgb(36,160,255);
+    /*height: 1.7rem;*/
+    border-radius: .1rem;
+    width: 45%;
+    color: #fff;
+    padding: .35rem 0 .35rem .4rem;
+    position: relative;
+    left: -.15rem;
+}
+.register .due{
+	background-color: rgb(63,105,242);
+	left: .25rem;
+}
+.paid img,.due img{
+	  position: absolute;
+    bottom: 0;
+    width: 1rem;
+    right: 0;
+}
+.due img{
+	top:0;
+}
+.paid-money,.due-money{
+	font-size: .4rem;
+	position: relative;
+    z-index: 100;
+}
+.customer{
+    width: .8rem;
+    position: fixed;
+    z-index: 10;
+    right: .5rem;
+    /* top: 1.5rem; */
+    bottom: 2rem;
+}
+/*  我的 */
+    </style>
+    
+</head>
+<body ontouchstart>
+    <div class="weui-tab" id="J_List">
+      <div class="weui-tab__bd" id="J_ListContent">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active"><!--页面一-->
+          	<div class="m-slider" id="J_Slider"><!--轮播-->
+					    <div class="slider-wrapper">
+					        <div class="slider-item">
+					            <a href="#">
+					                <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
+					            </a>
+					        </div>
+					        <div class="slider-item">
+					            <a href="#">
+					                <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
+					            </a>
+					        </div>
+					        <div class="slider-item">
+					            <a href="#">
+					                <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
+					            </a>
+					        </div>
+					    </div>
+					    <div class="slider-pagination"></div><!-- 分页标识 -->
+					</div>
+					<div class="weui-flex">
+					  <div class="weui-flex__item" id="home-borrowed">
+					  	<a class="cell-item receipt-borderRight" href="javascript:;">
+				        <div class="cell-left"><span class="cell-icon"><img src="img/oval3@3x.png"></span>我的借条</div>
+				    	</a>
+					  </div>
+					  
+					  <div class="weui-flex__item">
+					  	<a class="cell-item friend-borderLeft" href="javascript:;">
+				        <div class="cell-left"><span class="cell-icon"><img src="img/oval3-friend@3x.png"></span>好友管理</div>
+				    	</a>
+					  </div>
+					</div>
+					
+					<div class="notice"><!--滚动公告-->
+						<img src="img/fill1@3x.png" class="notice-tu" />
+						 <ul>
+							 <li>第1条公告第1条公告第1条公告</li>
+							 <li>第2条公告第2条公告第2条公告第2条公</li>
+							 <li>第3条公告第3条公告第3条公告第3条公告第3条</li>
+							 <li>第4条公告第4条公告第4条公告第4</li>
+						 </ul>
+					</div>
+					<div id="menu">
+						<div class="m-cell raiseFunds"> <!--好友筹款中-->
+						    <div class="cell-item">
+						        <div class="cell-left" id="raiseFunds"><div class="test1"></div>&nbsp;好友筹款中</div>
+						        <div class="cell-right"><a class="oneself">只看自己</a><span class="span-padding">排序</span>&nbsp;<img src="img/invalidName-rank@3x.png" class="rank-tu"><span class="span-padding">筛选</span>&nbsp;<img src="img/clip2-filtrate@3x.png" class="filtrate-tu" /></div>
+						    </div>
+						</div>
+						<div id="ul">
+							<div class="m-cell frame">
+								<img src="img/shape-mend@3x.png" />
+							    <a class="cell-item headPortrait" href="javascript:;">
+							        <div class="cell-left">
+							        	<span class="cell-icon">
+							        		<img src="//static.ydcss.com/ydui/img/logo.png" />
+							        	</span>
+							        	<div class="xm">
+							        		<span>姓名</span><span class="pleaseBorrow"> 补借条 | 待对方确认</span>
+							        	</div>
+							        	<br />
+							        	<div class="sjh-phone">13515660795</div>
+							        </div>
+							        <div class="cell-right ">
+							        	<span class="cell-icon">
+							        		
+							        	<!--<img src="img/invalidName-example@3x.png" />-->
+							        		<img src="img/group4-shijian@3x.png" class="time-tu"/>
+							        	</span>
+							        	<div class="time-character">剩余<span> 2 </span>天</div>
+							        </div>
+							    </a>
+							    <div class="m-grids-3">
+								    <a href="#" class="grids-item">
+								        <div class="grids-txt"><p class="colour">10000.00</p><span>筹款金额</span></div>
+								    </a>
+								    <a href="#" class="grids-item">
+								        <div class="grids-txt"><p class="colour">1天</p><span>借款时长</span></div>
+								    </a>
+								    <a href="#" class="grids-item">
+								        <div class="grids-txt"><p>12% | 12元</p><span>年利率 | 服务费</span></div>
+								    </a>
+								</div>
+							</div>
+							<div class="m-cell frame">
+								<img src="img/shape-borrow@3x.png" />
+							    <a class="cell-item headPortrait" href="javascript:;">
+							        <div class="cell-left">
+							        	<span class="cell-icon">
+							        		<img src="//static.ydcss.com/ydui/img/logo.png" />
+							        	</span>
+							        	<div class="xm">
+							        		<span>姓名</span><span class="pleaseBorrow"> 求借款 | 筹款中</span>
+							        	</div>
+							        	<br />
+							        	<div class="sjh-phone">13515660795</div>
+							        </div>
+							        <div class="cell-right ">
+							        	<span class="cell-icon">
+							        		
+							        	<!--<img src="img/invalidName-example@3x.png" />-->
+							        		<img src="img/group4-shijian@3x.png" class="time-tu"/>
+							        	</span>
+							        	<div class="time-character">剩余筹款期<span> 2 </span>天</div>
+							        </div>
+							    </a>
+							    <div class="m-grids-3">
+								    <a href="#" class="grids-item">
+								        <div class="grids-txt"><p class="colour">10000.00</p><span>筹款金额</span></div>
+								    </a>
+								    <a href="#" class="grids-item">
+								        <div class="grids-txt"><p class="colour">1-9天</p><span>借款时长</span></div>
+								    </a>
+								    <a href="#" class="grids-item">
+								        <div class="grids-txt"><p>12% | 12元</p><span>年利率 | 服务费</span></div>
+								    </a>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="m-cell raiseFunds"> <!--好友出借中-->
+						    <div class="cell-item">
+						        <div class="cell-left"><div class="test1"></div>&nbsp;好友出借中</div>
+						        <div class="cell-right"><a class="oneself">只看自己</a><span class="span-padding">排序</span>&nbsp;<img src="img/invalidName-rank@3x.png" class="rank-tu"><span class="span-padding">筛选</span>&nbsp;<img src="img/clip2-filtrate@3x.png" class="filtrate-tu" /></div>
+						    </div>
+						</div>
+						<div class="m-cell frame">
+							<img src="img/shape-appear@3x.png" />
+						    <a class="cell-item headPortrait" href="javascript:;">
+						        <div class="cell-left">
+						        	<span class="cell-icon">
+						        		<img src="//static.ydcss.com/ydui/img/logo.png" />
+						        	</span>
+						        	<div class="xm">
+						        		<span>姓名</span><!--<span class="pleaseBorrow"> 补借条 | 待对方确认</span>-->
+						        	</div>
+						        	<br />
+						        	<div class="sjh-phone">13515660795</div>
+						        </div>
+						        <div class="cell-right ">
+						        	<span class="cell-icon">
+						        		
+						        	<!--<img src="img/invalidName-example@3x.png" />-->
+						        		<!--<img src="img/group4-shijian@3x.png" class="time-tu"/>-->
+						        	</span>
+						        	<div class="time-character apply">0人申请 | 0%通过 | 0小时处理</div>
+						        </div>
+						    </a>
+						    <div class="m-grids-3">
+							    <a href="#" class="grids-item">
+							        <div class="grids-txt"><p class="colour">10000.00</p><span>筹款金额</span></div>
+							    </a>
+							    <a href="#" class="grids-item">
+							        <div class="grids-txt"><p class="colour">1天</p><span>借款时长</span></div>
+							    </a>
+							    <a href="#" class="grids-item">
+							        <div class="grids-txt"><p>12% | 12元</p><span>年利率 | 服务费</span></div>
+							    </a>
+							</div>
+						</div>
+						<div class="footer"></div>
+					</div>
+          	
+        </div>
+        <div id="tab2" class="weui-tab__bd-item"><!--页面2-->
+          <h1>页面二</h1>
+        </div>
+        <div id="tab3" class="weui-tab__bd-item"><!--页面3-->
+          <h1>页面三</h1>
+        </div>
+        <div id="tab4" class="weui-tab__bd-item"><!--页面4-->
+        	<!--<div>未登录显示-->
+        	<!--	<div class="weui-cell personalCenterUser">
+							<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+								<img src="img/portrait@3x.png" style="width: 50px;display: block;border-radius: .5rem;">
+							</div>
+							<div class="weui-cell__bd">
+								<p style="font-size: 13px;">点击登录</p>
+								<p style="color:#888888;">登录后可管理借条</p>
+							</div>
+							<div class="weui-cell__ft"></div>
+						</div>
+						<div class="m-cell personalCenter-margin">
+							<a class="cell-item" href="javascript:;">
+								<div class="cell-left"><span class="cell-icon"><img src="img/help@3x.png" /></span>帮助中心</div>
+								<div class="cell-right cell-arrow"></div>
+							</a>
+							<a class="cell-item" href="javascript:;">
+								<div class="cell-left"><span class="cell-icon"><img src="img/About@3x.png" /></span>关于我们</div>
+								<div class="cell-right cell-arrow"></div>
+							</a>
+						</div>-->
+        	<!--</div>未登录显示-->
+          <div><!--登录显示-->
+	        				<div class="weui-cell personalCenterUser register">
+								<div class="weui-cell__hd" id="headPortrait" style="position: relative;margin-right: 10px;">
+									<img src="img/portrait@3x.png" style="width: 50px;display: block;border-radius: .5rem;">
+								</div>
+								<div class="weui-cell__bd personalData">
+									<p style="font-size: 13px;">张三</p>
+									<p style="color:#888888;">15711111222</p>
+								</div>
+								<div class="cell-right cell-arrow personalData"><img src="img/ewm@3x.png" class="QR"><span>A</span></div>
+							</div>
+							<div class="weui-cell personalCenterUser wallet-margin" id="personal-balance">
+								<div class="weui-cell__hd " style="position: relative;margin-right: 10px;">
+								</div>
+								<div class="weui-cell__bd remaining">
+									<p style="color:#888888;">钱包余额（元）</p>
+									<p class="yuan">1.00</p>
+								</div>
+								<div class="cell-right cell-arrow wallet-arrows"></div>
+							</div>
+							<div class="weui-cell personalCenterUser register">
+								<div class="weui-cell__hd " style="position: relative;margin-right: 10px;">
+								</div>
+								<div class="weui-cell__bd paid" id="forReimbursement">
+									<p class="paid-money">0.00</p>
+									<p >待还</p>
+									<img src="img/collection@3x.png" />
+								</div>
+								<div class="weui-cell__bd due" id="dueIn">
+									<p class="due-money">0.00</p>
+									<p >待收</p>
+									<img src="img/paid@3x.png" />
+								</div>
+							</div>
+							<div class="m-cell personalCenter-margin">
+								<a class="cell-item" href="javascript:;" id="overdueRecord">
+									<div class="cell-left"><span class="cell-icon"><img src="img/record@3x.png" /></span>逾期记录</div>
+									<div class="cell-right cell-arrow"></div>
+								</a>
+								<a class="cell-item" href="javascript:;" id="repaymentPlan">
+									<div class="cell-left"><span class="cell-icon"><img src="img/plan@3x.png" /></span>收还款计划</div>
+									<div class="cell-right cell-arrow"></div>
+								</a>
+							</div>
+							<div class="m-cell personalCenter-margin">
+								<a class="cell-item" href="javascript:;" id="creditAuthentication">
+									<div class="cell-left"><span class="cell-icon"><img src="img/creditAuthentication@3x.png" /></span>信用认证</div>
+									<div class="cell-right cell-arrow"></div>
+								</a>
+								<a class="cell-item" href="javascript:;" id="myBankCard">
+									<div class="cell-left"><span class="cell-icon"><img src="img/bankCard@3x.png" /></span>我的银行卡</div>
+									<div class="cell-right cell-arrow"></div>
+								</a>
+								<img src="img/service@3x.png" class="customer"/>
+								<a class="cell-item" href="javascript:;">
+									<div class="cell-left"><span class="cell-icon"><img src="img/creditExtension@3x.png" /></span>授信</div>
+									<div class="cell-right cell-arrow"></div>
+								</a>
+								<a class="cell-item" href="javascript:;" id="moreSettings">
+									<div class="cell-left"><span class="cell-icon"><img src="img/setting@3x.png" /></span>更多设置</div>
+									<div class="cell-right cell-arrow"></div>
+								</a>
+							</div>
+							<div>
+								
+							</div>
+							<div class="footer"></div>
+							
+        		</div>	<!--登录显示-->		    
+          
+	          <div class="m-actionsheet" id="J_ActionSheet"><!--选择头像-->
+			    <a href="#" class="actionsheet-item">从手机相册选择</a>
+			    <a href="#" class="actionsheet-item">拍照</a>
+			    <a href="javascript:;" class="actionsheet-action" id="J_Cancel">取消</a>
+			 </div>
+          
+        </div>
+      </div>
+
+      <div class="weui-tabbar">
+        <a href="#tab1" class="weui-tabbar__item weui-bar__item--on" id="tab1-footer">
+         <!-- <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>-->
+          <div class="weui-tabbar__icon">
+            <img src="img/invalidName-jiekuan@3x.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">求借款</p>
+        </a>
+        <a href="#tab2" class="weui-tabbar__item" id="tab2-footer">
+          <div class="weui-tabbar__icon">
+            <img src="img/copy-qcj@3x.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">去出借</p>
+        </a>
+        <a href="#tab3" class="weui-tabbar__item" id="tab3-footer">
+          <div class="weui-tabbar__icon">
+            <img src="img/copy-gj@3x.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">工具</p>
+        </a>
+        <a href="#tab4" class="weui-tabbar__item" id="tab4-footer">
+          <div class="weui-tabbar__icon">
+            <img src="img/Copy-wd@3x.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">我的</p>
+        </a>
+      </div>
+    </div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	$(function() {//底部导航
+    FastClick.attach(document.body);
+  });
+  $('#J_Slider').slider({//轮播图
+        speed: 200,
+        autoplay: 300000,
+        lazyLoad: true
+    });
+  /*
+* 参数说明
+* obj : 动画的节点，本例中是ul
+* top : 动画的高度，本例中是-35px;注意向上滚动是负数
+* time : 动画的速度，即完成动画所用时间，本例中是500毫秒，即marginTop从0到-35px耗时500毫秒
+* function : 回调函数，每次动画完成，marginTop归零，并把此时第一条信息添加到列表最后;
+* 
+*/
+function noticeUp(obj,top,time) {
+ $(obj).animate({
+ marginTop: top
+ }, time, function () {
+ $(this).css({marginTop:"0"}).find(":first").appendTo(this);
+ })
+}
+$(function () {
+ // 调用 公告滚动函数
+ setInterval("noticeUp('.notice ul','-.7rem',500)", 3000);
+ });
+  
+  
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        /*底部导航*/
+        $("#tab1-footer").click(function(){//底部导航点击
+				  $("#tab1-footer img").attr("src",'img/invalidName-jiekuan@3x.png');
+				  $("#tab2-footer img").attr("src",'img/copy-qcj@3x.png');
+				  $("#tab3-footer img").attr("src",'img/copy-gj@3x.png');
+				  $("#tab4-footer img").attr("src",'img/Copy-wd@3x.png');
+				});
+        $("#tab2-footer").click(function(){//底部导航点击
+				  $("#tab2-footer img").attr("src",'img/invalidName-qcj@3x.png');
+				  $("#tab1-footer img").attr("src",'img/copy-wxs@3x.png');
+				  $("#tab3-footer img").attr("src",'img/copy-gj@3x.png');
+				  $("#tab4-footer img").attr("src",'img/Copy-wd@3x.png');
+				});
+				$("#tab3-footer").click(function(){//底部导航点击
+				  $("#tab3-footer img").attr("src",'img/invalidName-gj@3x.png');
+				  $("#tab1-footer img").attr("src",'img/copy-wxs@3x.png');
+				  $("#tab2-footer img").attr("src",'img/copy-qcj@3x.png');
+				  $("#tab4-footer img").attr("src",'img/Copy-wd@3x.png');
+				});
+				$("#tab4-footer").click(function(){//底部导航点击
+				  $("#tab4-footer img").attr("src",'img/invalidName-wd@3x.png');
+				  $("#tab1-footer img").attr("src",'img/copy-wxs@3x.png');
+				  $("#tab3-footer img").attr("src",'img/copy-gj@3x.png');
+				  $("#tab2-footer img").attr("src",'img/copy-qcj@3x.png');
+				});
+				
+				
+				$("#raiseFunds").on("click",function(){ ///展示/隐藏
+					if($("#raiseFunds>div").is('.test2')){
+						$("#raiseFunds>div").addClass('test1');
+						$("#raiseFunds>div").removeClass("test2");
+					}else{
+						$("#raiseFunds>div").addClass('test2');
+						$("#raiseFunds>div").removeClass("test1");
+					}
+					$('#ul').toggle();
+				})
+		/*底部导航*/
+		
+		/* 求借款 */
+		
+		$("#home-borrowed").on('click',function(){//首页 我的借条点击
+			window.location.href='borrowed.html';
+		})
+		
+		/* 求借款 */
+		
+		/* 去出借 */
+		
+		/* 去出借 */
+		
+		/* 工具 */
+		
+		/* 工具 */
+		
+		/* 我的 */
+		var $as = $('#J_ActionSheet');//已登录  头像点击
+	    $('#headPortrait').on('click', function () {
+	        $as.actionSheet('open');
+	    });
+	    $('#J_Cancel').on('click', function () {//已登录  头像点击
+	        $as.actionSheet('close');
+	    });
+		
+		$('.personalData').on('click',function(){ //已登录  个人资料 点击
+			window.location.href='personalData.html';
+		})
+		
+		$('#creditAuthentication').on('click',function(){ //信用认证点击
+			window.location.href='creditAuthentication.html';
+		})
+		
+		$('#personal-balance').on('click',function(){ //个人中心 余额点击
+			window.location.href='wallet.html';
+		})
+		
+		$('#myBankCard').on('click',function(){ //我的银行卡点击
+			window.location.href='bankCard.html';
+		})
+		
+		$('#repaymentPlan').on('click',function(){ //我的收款计划点击
+			window.location.href='repaymentPlan.html';
+		})
+		
+		$('#moreSettings').on('click',function(){ //更多设置 点击
+			window.location.href='moreSettings.html';
+		})
+		
+		$('#forReimbursement').on('click',function(){ //待还 点击
+			window.location.href='forReimbursement.html';
+		})
+		
+		$('#dueIn').on('click',function(){ //待收 点击
+			window.location.href='dueIn.html';
+		})
+		
+		$('#overdueRecord').on('click',function(){ //逾期记录 点击
+			window.location.href='overdueRecord.html';
+		})
+		/* 我的 */
+		
+		
+		
+	}(window, jQuery);
+
+</script>
+<script>
+
+    $('#J_List').pullRefresh({
+        initLoad: true,
+        loadFunction: function () {
+            var def = $.Deferred();
+
+            $.ajax({
+                url: 'http://list.ydui.org/getdata.php?type=pulldown&page=',
+                dataType: 'json',
+                success: function (ret) {
+                    /* 假设ret.list为后端返回的列表数组 */
+
+                    $('#J_ListContent').prepend(ret.list + '将数据拼接成html');
+
+                    var tipStr = ret.length > 0 ? '为您更新了' + ret.length + '条内容' : '已是最新内容';
+
+                    YDUI.dialog.toast(tipStr, 'none', 1500);
+
+                    /* 处理完后调用resolve()方法 */
+                    def.resolve();
+                }
+            });
+
+            return def.promise();
+        }
+    });
+
+</script>
+</body>
+</html>

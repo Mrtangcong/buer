@@ -1,0 +1,225 @@
+
+
+/************************jiedai*****************/
+body{
+    		background-color: #fff;
+    		font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    	}
+    	.m-navbar{
+    		background-color: #000000;
+    	}
+    	.navbar-center .navbar-title,.navbar-item{
+    		color:#fff;
+    	}
+    	.ts{
+    		max-width: .52rem;
+    	}
+    	.tabbar-item.tabbar-active{
+    		color:#00A0E9;
+    	}
+    	/*.nr{
+    		padding:0.24rem;
+    	}*/
+    	.list-theme5 .list-item {
+		    padding: .3rem .3rem 0;
+		}
+    	.buer{
+    	/*	border-bottom: .01rem solid #f0f0f0;*/
+    		width: 100%;
+    		position: absolute;
+    		top: 0;
+    	}
+		/**************/
+		.list-img {
+		   height:100%;
+		    width: 100%;
+		    padding:0;
+		    overflow: hidden;
+		}
+		/* .list-img>img{
+			border-radius: .3rem;
+		} */
+		.list-img img{
+			margin-top: 0;
+    		
+    		background-color: rgba(255, 255, 255, 0);
+		}
+		.tu_1{position: relative;}
+		.buer:not(:last-child):after{border-bottom: 1px solid #fff;margin-left:0;}
+		.buer .cell-right{
+			background: url(../../images/jiekuancishu_bj1.png) center right no-repeat;
+			margin-right: .4rem;
+			color:#fff;
+			background-size: 2.15rem;
+		}
+		.buer2 .cell-right{background: url(../../images/jiekuancishu_bj2.png) center right no-repeat;background-size: 2.15rem;}
+		.buer3 .cell-right{background: url(../../images/jiekuancishu_bj3.png) center right no-repeat;background-size: 2.15rem;}
+		.jinq{
+			position: absolute;
+			bottom:0.55rem;
+			right: 0;
+		}
+		.jinq .cell-right {
+		    color: #fff;
+		    font-size: 1rem;
+		    min-height: 0rem;
+		}
+		.jinq .wenz{
+			font-size: .45rem;
+		}
+		.list-theme5 .list-item:after {
+		    left: 0;
+		    height: 1px;
+		    border-bottom: 1px solid #fff;
+		    content: '';
+		    bottom: 0;
+		}
+		.a_dx{
+			 width: 100%;  
+                height: 100%;  
+                display:block; 
+		}
+		.blur {	
+		    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+		    
+		    -webkit-filter: blur(1px); /* Chrome, Opera */
+		       -moz-filter: blur(1px);
+		        -ms-filter: blur(1px);    
+		            filter: blur(1px);
+		    
+		    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=1, MakeShadow=false); /* IE6~IE9 */
+		}
+		.cell-left{
+			color: #666;
+		}
+		.left_jdzi{
+		    line-height: .9rem;
+		    font-size: .35rem;
+		    color: #fff;
+    	}
+    	.left_jdzi>img{
+    		max-width: .5rem;
+    	}
+	/**********************login**************/
+	
+	.navbar-item .back-ico:before, .navbar-item .next-ico:before {
+    display: block;
+    font-size: .5rem;
+    color: #fff;
+}
+	.m-cell{
+		border-top:.01rem solid #cacdcd;
+	}
+
+	.left{
+		width: 1.4rem;
+		
+		}
+	.cell-input{color: #333;}
+	::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: #bbb; 
+	} 
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: #bbb; 
+	} 
+	::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: #bbb; 
+	} 
+	:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: #bbb; 
+	}  
+	
+	.wjmm{
+		color:#00a0e9;
+		font-size: .35rem;
+	}
+	.btn-primary {
+	    background-color: #abcedc;
+	}
+	.btn-primary:active {
+    	background-color: #abc4dc;
+	}
+	.btn-warning{
+		border-radius: .5rem;
+		width: 2rem;
+		background-color: #abcedc;
+		font-size: .3rem;
+	}
+	.btn-warning:active {
+    	background-color:#abcedc;
+	}
+	
+	.yzys::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: red; 
+	} 
+	.yzys:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: red; 
+	} 
+	.yzys::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: red; 
+	} 
+	.yzys:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: red; 
+	} 
+/*********xh*********/
+	.clear {
+		display: none;
+	    width: 20px;
+	    height: 20px;
+	    background: url(../../images/guanbi@2x.png) no-repeat;
+	    background-size:.3rem;
+	    outline: none; 
+    }
+    .input::-ms-clear { display: none; }
+	.input:valid + .clear {display: inline;}
+	
+	.confirm-ft>a.confirm-btn.primary{
+		color:#1372e0;
+	}
+/*******qxz*****/
+.qxz{
+	max-width: 7%;
+}
+
+
+.m-cell{    margin-top: .4rem;}
+
+/*******/
+.m-tabbar {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .104rem 0 .07rem;
+    background-color: rgba(255,255,255,.96);
+    position: fixed;
+    bottom: 0;
+}
+
+.bx{
+    color: #333;
+    position: absolute;
+    width: 80%;
+    left: 21.5%;
+	}
+.btn-block {
+	border-radius: 5px;
+}
+#lan img{width: .45rem;}
+#yhj1{
+	color: #aaa;
+}
+.xlk_qxz{
+	color:#c6c6c6;
+}
+/******xx_hd*****/
+.badge-danger{
+	display: none;
+}
+/***********流程标题颜色**********/
+.timeline h4{
+	color:#333;
+}

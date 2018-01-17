@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的借款</title><!--我的借款-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+  <link rel="stylesheet" href="css/weuix.min.css"  />
+	<!--<link rel="stylesheet" href="css/jquery-weui.min.css"  />-->
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	
+    	.oweDetails-name{/*头部*/
+    		background-color: #fff;
+    	}
+    	.oweDetails-name .grids-item{
+    		padding: 0;
+    	}
+    	.oweDetails-name .grids-icon{
+    		height: .9rem;
+    	}
+    	.m-grids-2{
+    		margin-bottom: .24rem;
+    		border-top: 1px solid rgb(238,238,238);
+    	}
+    	.m-grids-2 .grids-item{
+    		margin: .1rem 0;
+    		padding: 0;
+    	}
+    	.m-grids-2 .grids-icon{
+    		height: .4rem;
+    	}
+    	.m-grids-2 .grids-txt{
+    		color: rgb(102,102,102);
+    	}
+    	.m-grids-2:before,.grids-item:after{
+    		border: 0;
+    	}
+    	/*头部   结尾*/
+    	
+.rank-tu{
+	width: .7rem;
+	padding-right: .3rem;
+    border-right: 1px solid #ccc;
+}
+.filtrate-tu{
+	width: .3rem;
+}
+.oneself{
+	padding-right: .3rem;
+ /*   border-right: 1px solid #ccc;*/
+}
+.span-padding{
+	padding-left: .2rem;
+}
+ .oneself:after {
+    content: '';
+    position: absolute;
+    left: auto;
+    top: auto;
+    /* right: .3rem; */
+    height: 50%;
+    width: 1px;
+    background-color: #ccc;
+    margin-left: .3rem;
+    }
+.raiseFunds .cell-item{
+	height: .7rem;
+}
+.raiseFunds .cell-right{
+	height: .7rem;
+	min-height: .7rem;
+}
+.colour{
+	color:rgb(248,107,18);
+	font-size: .35rem;
+}
+
+/*btn*/
+.btn-block{
+		display: inline-block;
+		width: 47%;
+		margin-top:0;
+		border: 1px solid rgb(16, 142, 233);
+		height: .8rem;
+		line-height: .8rem;
+		font-size: .3rem;
+	}
+	.generate {
+		background-color: rgb(16, 142, 233);
+	}
+	.m-button {
+		/*position: absolute;*/
+		margin-bottom: .5rem;
+		width: 100%;
+	}
+	.sampleReport {
+		color: rgb(16, 142, 233);
+		background-color: #fff;
+		border: 1px solid rgb(16, 142, 233);
+		margin-right: .25rem;
+	}
+
+/*页面css*/
+.weui-cell:before{
+	border-top: 0;
+}  
+.serviceCharge{
+	padding-left: .6rem;
+}
+.serviceCharge .cell-left{
+	color:rgb(102,102,102);
+}
+.particulars-money{
+	padding-bottom: .2rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid rgb(238,238,238);
+	border-top: 0;
+}
+.particulars-money .grids-item:not(:nth-child(2n)):before{
+	border-right: 0;
+}
+.particulars-money .padding-left{
+	padding-left: 1rem;
+}
+.particulars-money .padding-right{
+	padding-right: 1rem;
+}
+.particulars-frame footer{
+	height: .24rem;
+	background-color: rgb(246,246,246);
+}
+.particulars .m-cell:after{
+	border-bottom: 0;
+}
+.particulars-frame>img{
+	position: absolute;
+    width: 1rem;
+    right: 0;
+}
+    	
+    </style>
+    
+</head>
+<body ontouchstart class="particulars">
+    <div class="weui-cell oweDetails-name">
+			<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+				<img src="img/portrait@3x.png" style="width: 50px;display: block;border-radius: .5rem;">
+			</div>
+			<div class="weui-cell__bd">
+				<p>张三</p>
+				<p style="font-size: 13px;color: #888888;">15711111222</p>
+			</div>
+			<a href="#" class="">
+		        <div class="grids-icon"><img src="img/report-tu@3x.png"></div>
+		   </a>
+	</div>
+	<div class="m-grids-2">
+	    <a href="#" class="grids-item">
+	        <div class="grids-icon"><span>110.00</span></div>
+	        <div class="grids-txt"><span>待收金额(元)</span></div>
+	    </a>
+	    <a href="#" class="grids-item">
+	        <div class="grids-icon"><span>0.00</span></div>
+	        <div class="grids-txt"><span>待还金额(元)</span></div>
+	    </a>
+	</div>
+	
+	<div id="menu">
+		<div class="m-cell raiseFunds">
+			<!--好友筹款中-->
+			<div class="cell-item">
+				<div class="cell-left" id="raiseFunds">
+					<span class="cell-icon"><img src="img/iBorrow-tu.png" /></span>我的借款</div>
+				<div class="cell-right">
+					<span class="span-padding">排序</span>&nbsp;<img src="img/invalidName-rank@3x.png" class="rank-tu"><span class="span-padding">筛选</span>&nbsp;<img src="img/clip2-filtrate@3x.png" class="filtrate-tu" />
+				</div>
+			</div>
+			<div class="particulars-frame">
+				<img src="img/underway-tu@3x.png" />
+				<div class="weui-cell">
+	                <div class="weui-cell__hd" style="position: relative;">
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <p>借款编号 &nbsp;&nbsp;20181919191181919181919191010</p>
+	                    <p style="font-size: .25rem;color: rgb(153,153,153);">1人申请出借 | 100% | 0.1小时处理 | 1笔成交纪录</p>
+	                </div>
+	            </div>
+	            <div class="m-grids-2 particulars-money">
+					<a href="#" class="grids-item padding-left">
+						<div class="grids-txt">
+							<p class="colour">300.00元</p><span>借款金额</span></div>
+					</a>
+					<a href="#" class="grids-item padding-right">
+						<div class="grids-txt">
+							<p class="colour">3个月</p><span>借款时长</span></div>
+					</a>
+				</div>
+				<div class="cell-item serviceCharge">
+			        <div class="cell-left">年利率：12%  |  服务费：0% | 0元</div>
+			        <div class="cell-right"><span class="cell-icon"><img src="img/serviceCharge-tu.png" /></span></div>
+			    </div>
+			    <footer></footer>
+			</div>
+			<div class="particulars-frame">
+				<img src="img/closed-tu@3x.png" />
+				<div class="weui-cell">
+	                <div class="weui-cell__hd" style="position: relative;">
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <p>借款编号 &nbsp;&nbsp;20181919191181919181919191010</p>
+	                    <p style="font-size: .25rem;color: rgb(153,153,153);">1人申请出借 | 100% | 0.1小时处理 | 1笔成交纪录</p>
+	                </div>
+	            </div>
+	            <div class="m-grids-2 particulars-money">
+					<a href="#" class="grids-item padding-left">
+						<div class="grids-txt">
+							<p class="colour">300.00元</p><span>借款金额</span></div>
+					</a>
+					<a href="#" class="grids-item padding-right">
+						<div class="grids-txt">
+							<p class="colour">3个月</p><span>借款时长</span></div>
+					</a>
+				</div>
+				<div class="cell-item serviceCharge">
+			        <div class="cell-left">年利率：12%  |  服务费：0% | 0元</div>
+			        <div class="cell-right"><span class="cell-icon"><img src="img/serviceCharge-tu.png" /></span></div>
+			    </div>
+			    <footer></footer>
+			</div>
+			
+		</div>
+	</div>
+	<div class="m-button">
+		<button type="button" class="btn-block btn-disabled sampleReport" id="formSubitBtn">发起借款</button>
+		<button type="button" class="btn-block btn-disabled generate " id="formSubitBtn">分享出借</button>
+	</div>
+
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        
+        
+		 
+		  
+	}(window, jQuery);
+
+
+</script>
+</body>
+</html>

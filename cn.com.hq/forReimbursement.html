@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>待还</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	body{
+    		background-color: #fff;
+    		position: relative;
+    		height: 100%;
+    	}
+    	.confirmed-height{
+    		height: .4rem;
+    	}
+    	.tab-nav-item.tab-active {
+		    color: rgb(16,142,233);
+		}
+		.tab-nav-item.tab-active:before{
+			width: 100%;
+			left:0;
+			margin-left:0;
+		}
+		.tab-panel{
+			margin-top: .24rem;
+			height: 100%;
+			
+		}
+		.tab-panel .tab-panel-item{
+			padding: 0;
+		}
+		
+		
+		.forReimbursement .weui-media-box_text{
+			text-align: center;
+			padding-bottom: 0;
+			padding-top: .24rem;
+		}
+		.forReimbursement .m-grids-3 .grids-item{
+			padding-top: 0;
+		}
+		.weui-cell__bd:after {
+		    content: " ";
+		    display: inline-block;
+		    height: 8px;
+		    width: 8px;
+		    border-width: 2px 2px 0 0;
+		    border-color: #C8C8CD;
+		    border-style: solid;
+		    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+		    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+		    position: relative;
+		    top: -2px;
+		    position: absolute;
+		    top: 50%;
+		    right: 15px;
+		    margin-top: -4px;
+		}
+		.weui-cells{
+			margin-top: 0;
+			overflow: initial;
+			line-height:inherit;
+			height: 100%;
+		}
+		.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before{
+			color: rgb(16,124,233);
+		}
+		.weui-cell__ft{
+			padding-right: .4rem;
+		}
+		.forReimbursement .weui-check__label .date{
+			font-size: .3rem;
+			font-weight: none;
+			color: #000;
+		}
+		.forReimbursement .weui-check__label .introduce,.forReimbursement .weui-check__label .overdue{
+			font-size: .25rem;
+			color: rgb(153,153,153);
+		}
+		.forReimbursement .weui-check__label .overdue{
+			color: rgb(240,43,43);
+		}
+		.forReimbursement .weui-cell img{
+			width: .3rem;
+			position: absolute;
+			right: .1rem;
+			top:0;
+		}
+		.bubble{
+			background-image: url(img/bubble-tu@3x.png);
+			/*width: 1rem;*/
+			/*height: .6rem;
+			line-height: .5rem;*/
+			background-size: 100% 100%;
+			color: #fff;
+			text-align: center;
+			display: inline-block;
+			padding: .03rem .2rem .1rem .2rem;
+			font-size: .2rem;
+			position: absolute;
+			z-index: 10;
+			top:.1rem;
+			right: 2.1rem;
+		}
+		.weui-media-box__desc{
+			color: rgb(51,51,51);
+		}
+		.weui-media-box__title{
+			font-size: .55rem;
+		}
+		
+		.m-grids-3:before,.m-grids-3 .grids-item:not(:nth-child(3n)):before,.m-grids-3 .grids-item:not(:nth-child(3n)):before,.grids-item:after,.weui-cells:after{
+			border: 0;
+		}
+		.margin{
+			height: .24rem;
+			background-color: rgb(246,246,246);
+		}
+		.grids-txt{
+			color: rgb(102,102,102);
+		}
+		.repayment{
+			position: fixed;
+			z-index: 100;
+			bottom: 0;
+			width: 100%;
+			background-color: rgb(246,246,246);
+			/*text-align: center;*/
+			padding: .2rem 0;
+		}
+		/*#J_Tab,.tab-panel .tab-panel-item.tab-active{
+			height: 100%;
+		}*/
+		.weui-flex{
+			display:flex;
+			 align-items: center;
+			 justify-content: center;
+		}
+		.padding-right{
+			padding-right: .2rem;
+			padding-left: .2rem;
+			font-size: .35rem;
+		}
+		.padding-right span{
+			color: rgb(16,142,233);
+		}
+		.forReimbursement .btn .placeholder{
+			font-size: .25rem;
+		}
+		.forReimbursement .btn{
+			background-color: rgb(16,142,233);
+			margin-right: .2rem;
+			color: #fff;
+		}
+		.weui-flex__item{
+			color: rgb(102,102,102);
+		}
+		
+		.weui-badge{
+			background-color: inherit;
+			
+		}
+		.weui-badge img{
+			width: .4rem;
+		}
+		
+		.actionsheet-action,.actionsheet-item span{/*下拉框颜色*/
+			color: #000;
+		}
+		.on-line span{
+			color: rgb(238,238,238);
+		}
+		
+		.mask-black-dialog .confirm-hd,.mask-black-dialog .confirm-bd{/*弹出框*/
+			text-align: center;
+		}
+		.m-confirm{
+			border-radius: .15rem;
+		}
+		
+    </style>
+    
+</head>
+<body ontouchstart class="forReimbursement">
+	<div class="weui-flex repayment">
+            <div class="padding-right"><div class="placeholder">共 <span>55 </span>元</div></div>
+            <div class="weui-flex__item"><div class="placeholder">本金50元<br />利息5元+服务费0元+滞纳金0元</div></div>
+            <div class="padding-right btn" id="toReimbursement"><div class="placeholder">去还款</div></div>
+    </div>
+	
+	
+    <div id="J_Tab" class="m-tab">
+    <ul class="tab-nav">
+        <li class="tab-nav-item tab-active">
+        	<a href="javascript:;">全部</a>
+        </li>
+        <li class="tab-nav-item">
+        	<a href="javascript:;">近7天待还</a>
+        </li>
+    </ul>
+	<p class="margin"></p>
+    <div class="tab-panel">
+        <div class="tab-panel-item tab-active"><!--第一个-->
+        	<div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__desc">待还总额(元)</h4>
+                    <p class="weui-media-box__title">100.00</p>
+                    <div class="bubble">
+	                	2笔
+	                </div>
+                </div>
+    		</div>
+    	<div class="m-grids-3">
+		    <a href="#" class="grids-item">
+		        <div class="grids-txt"><span>借款总本金</span></div>
+		        <div class="grids-txt"><span>90.00</span></div>
+		    </a>
+		    <a href="#" class="grids-item">
+		        <div class="grids-txt"><span>总利息</span></div>
+		        <div class="grids-txt"><span>10.00</span></div>
+		    </a>
+		    <a href="#" class="grids-item">
+		        <div class="grids-txt"><span>总服务费</span></div>
+		        <div class="grids-txt"><span>0.00</span></div>
+		    </a>
+		</div>
+		<p class="margin"></p>
+	<div class="weui-cells weui-cells_checkbox">
+	  <label class="weui-cell weui-check__label" for="s1">
+	    <div class="weui-cell__hd">
+	      <input type="checkbox" class="weui-check" name="checkbox1" id="s1">
+	      <i class="weui-icon-checked"></i>
+	    </div>
+	    <div class="weui-cell__bd">
+	        <p class="date">2017-04-26到期</p>
+			<p class="introduce">李四／旅游／线下</p>
+		</div>
+		<div class="weui-cell__ft">
+				<p class="date">2017</p>
+				<p class="overdue">&nbsp;</p>
+		</div>
+		<img src="img/overdue-tu@3x.png" />
+	  </label>
+	 <label class="weui-cell weui-check__label" for="s0">
+	    <div class="weui-cell__hd">
+	      <input type="checkbox" class="weui-check" name="checkbox1" id="s0">
+	      <i class="weui-icon-checked"></i>
+	    </div>
+	    <div class="weui-cell__bd">
+	     	<p class="date">2017-04-26到期</p>
+			<p class="introduce">李四／旅游／线下</p>
+		</div>
+		<div class="weui-cell__ft">
+				<p class="date">111111111</p>
+				<p class="overdue">李四</p>
+		</div>
+	</label>
+	  <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+	  </a>
+	</div>
+
+</div>
+        <div class="tab-panel-item underway"><!--第二个-->
+	        	<div class="weui-panel__bd">
+		                <div class="weui-media-box weui-media-box_text">
+		                    <h4 class="weui-media-box__desc">待还总额(元)</h4>
+		                    <p class="weui-media-box__title">100.00</p>
+		                    <div class="bubble">
+			                	2笔
+			                </div>
+		                </div>
+		    		</div>
+		    	<div class="m-grids-3">
+				    <a href="#" class="grids-item">
+				        <div class="grids-txt"><span>借款总本金</span></div>
+				        <div class="grids-txt"><span>90.00</span></div>
+				    </a>
+				    <a href="#" class="grids-item">
+				        <div class="grids-txt"><span>总利息</span></div>
+				        <div class="grids-txt"><span>10.00</span></div>
+				    </a>
+				    <a href="#" class="grids-item">
+				        <div class="grids-txt"><span>总服务费</span></div>
+				        <div class="grids-txt"><span>0.00</span></div>
+				    </a>
+				</div>
+				<p class="margin"></p>
+			<div class="weui-cells weui-cells_checkbox">
+			  <label class="weui-cell weui-check__label" for="s1">
+			    <div class="weui-cell__hd">
+			      <input type="checkbox" class="weui-check" name="checkbox1" id="s1">
+			      <i class="weui-icon-checked"></i>
+			    </div>
+			    <div class="weui-cell__bd">
+			        <p class="date">2017-04-26到期</p>
+					<p class="introduce">李四／旅游／线下</p>
+				</div>
+				<div class="weui-cell__ft">
+						<p class="date">2017</p>
+						<p class="overdue">&nbsp;</p>
+				</div>
+				<img src="img/overdue-tu@3x.png" />
+			  </label>
+			 <label class="weui-cell weui-check__label" for="s0">
+			    <div class="weui-cell__hd">
+			      <input type="checkbox" class="weui-check" name="checkbox1" id="s0">
+			      <i class="weui-icon-checked"></i>
+			    </div>
+			    <div class="weui-cell__bd">
+			     	<p class="date">2017-04-26到期</p>
+					<p class="introduce">李四／旅游／线下</p>
+				</div>
+				<div class="weui-cell__ft">
+						<p class="date">111111111</p>
+						<p class="overdue">李四</p>
+				</div>
+			</label>
+			  <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+			  </a>
+			</div>
+
+       </div>
+    </div>
+</div>
+<div class="m-actionsheet" id="J_ActionSheet">
+	<div class="actionsheet-item on-line">
+		  <span style="vertical-align: middle">我要线上还款(无需对方确认)</span>
+          <span class="weui-badge onLine-tu" ><img src="img/hint-tu@3x.png"/></span>
+	</div>
+	<div class="actionsheet-item">
+		  <span style="vertical-align: middle" id="offline">我已线下还款(需要对方确认)</span>
+          <span class="weui-badge offline" ><img src="img/hint-tu@3x.png"/></span>
+	</div>
+    <a href="javascript:;" class="actionsheet-action" id="J_Cancel">取消</a>
+</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        var $tab = $('#J_Tab');
+
+	    $tab.tab({
+	        nav: '.tab-nav-item',
+	        panel: '.tab-panel-item',
+	        activeClass: 'tab-active'
+	    });
+	
+	    $tab.find('.tab-nav-item').on('open.ydui.tab', function (e) {
+	        console.log('索引：%s - [%s]正在打开', e.index, $(this).text());
+	    });
+	
+	    $tab.find('.tab-nav-item').on('opened.ydui.tab', function (e) {
+	        console.log('索引：%s - [%s]已经打开了', e.index, $(this).text());
+	    });
+	    
+	    //列表点击
+	    $(".weui-form-preview__bd").on('click',function(){
+	    	window.location.href="oweDetails.html";
+	    })
+	    
+	   /* for(var i=0; i<$(".underway .color-notarize").length;i++){
+	    	console.log($(".underway .color-notarize").html());
+	    }*/
+	    //console.log($(".underway .color-notarize").html());
+	    
+	    /*点击 去还款  下拉弹出*/
+	    $as = $('#J_ActionSheet');
+	    $('#toReimbursement').on('click', function () {
+	        $as.actionSheet('open');
+	    });
+	
+	    $('#J_Cancel').on('click', function () {
+	        $as.actionSheet('close');
+	    });
+	
+	    /* 自定义事件 */
+	    $as.on('open.ydui.actionsheet', function () {
+	        console.log('打开了');
+	    }).on('close.ydui.actionsheet', function () {
+	        console.log('关闭了');
+	    });
+	    /*  */
+	   $('#offline').on('click', function () {
+	        window.location.href="offlinePayment.html";
+	    });
+	    $(".onLine-tu").on('click',function(){  //线上还款提示点击
+	    	dialog.confirm('提醒', '【线上还款】是指在平台内通过绑定的银行卡支付。', [
+                {
+                    txt: '我知道了',
+                    color: "rgb(16,142,233)",
+                    callback: function () {
+                       /* dialog.toast('你点了取消', 'none', 1000);*/
+                    }
+                }
+            ]);
+	    })
+	    $(".offline").on('click',function(){//线下还款提示点击
+	    	dialog.confirm('提醒', '【线下还款】是指在平台外通过现金／支付宝／微信／银行卡转账等途径支付。<br />【线下还款】需要对方确认收到款借条才会销。', [
+                {
+                    txt: '我知道了',
+                    color: "rgb(16,142,233)",
+                    callback: function () {
+                       /* dialog.toast('你点了取消', 'none', 1000);*/
+                    }
+                }
+            ]);
+	    })
+        
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

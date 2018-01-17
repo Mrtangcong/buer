@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>钱包</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+<!--	<link rel="stylesheet" href="css/jquery-weui.min.css"  />-->
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.wallet .remaining{
+    		background: -webkit-linear-gradient(rgb(37,193,246),rgb(16,142,233));
+		    background: -o-linear-gradient(rgb(37,193,246),rgb(16,142,233));
+		    background: -moz-linear-gradient(rgb(37,193,246),rgb(16,142,233));
+		    background: linear-gradient(rgb(37,193,246),rgb(16,142,233));
+		    padding: .4rem .4rem 0;
+		    color: #fff;
+    	}
+    	.wallet .remaining img{
+    		display: inline-block;
+		    width: .3rem;
+		    position: relative;
+		    top: .05rem;
+		    margin-left: .1rem;
+    	}
+    	.wallet .money{
+    		font-size: 1rem;
+    	}
+    	.wallet .m-button{
+    		padding: 0 .6rem;
+    	}
+    	.wallet .m-button .btn-primary{
+    		height: .8rem;
+		    line-height: .8rem;
+		    background-color: rgb(16,142,233);
+		    font-size: .3rem;
+		    margin-top: .7rem;
+    	}
+    	.mask-black-dialog .confirm-hd,.mask-black-dialog .confirm-bd{/*弹出框*/
+			text-align: center;
+		}
+		.m-confirm{
+			border-radius: .15rem;
+		}
+    </style>
+    
+</head>
+<body ontouchstart class="wallet">
+	<div class="remaining">
+		<p>余额(元)<img src="img/plaint-tu@3x.png"</p>
+		<p class="money">0.00</p>
+	</div>
+	<div class="m-button">
+				    
+		<button type="button" class="btn-block btn-primary" id="recharge">充值</button>
+	</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+     
+        $('#recharge').on('click', function () {/*充值点击*/
+//      	if(){
+//      		window.location.href="topUp.html"   /*有卡*/
+//      	}else{
+        		 /*无卡   弹出框*/
+        		dialog.confirm('提示', '出于银行风控要求，您需要先关联储蓄卡，并开通银联在线支付功能，才能进行交易。', [
+                {
+                    txt: '取消',
+                    color: false, 
+                    callback: function () {
+                       /* dialog.toast('你点了取消', 'none', 1000);*/
+                    }
+                },
+                {
+                    txt: '关联储蓄卡',
+                    color: "rgb(16,142,233)",
+                    callback: function () {
+                      /*  dialog.toast('你点了确定', 'none', 1000);*/
+                     	window.location.href="bindBankCard.html"
+                    }
+                }
+            ]);
+//      	}
+        });
+		/* */
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>充值</title><!--充值 页面-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+    <link rel="stylesheet" href="css/weixin.min.css"  />
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    /*.wenzi{
+    		text-align: center;
+    		padding: .2rem 0;
+    	}*/
+	::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: rgb(204,204,204); 
+	} 
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: rgb(204,204,204); 
+	} 
+	::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: rgb(204,204,204); 
+	} 
+	:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: rgb(204,204,204); 
+	}
+	
+	.cell-input {
+	    text-align: right;
+	    margin: 0;
+	    color: rgb(51,51,51);
+	}
+	.m-button{
+		padding: .15rem .7rem;
+	}
+	.generate{
+			background-color: rgb(16, 142, 233);
+			color: #fff;
+			height: .9rem;
+			line-height: .9rem;
+		}
+	.dayu{
+		 width: 12px;
+		  height: 12px;
+		  position: absolute;
+		  top:.5rem;
+		  border-left: 1px solid #999;
+		  border-bottom: 1px solid #999;
+		  -webkit-transform: translate(0,-50%) rotate(-135deg);
+		  transform: translate(0,-50%) rotate(-135deg);
+	}	
+		
+	.weui-flex__item {
+		    text-align: center;
+		 /*   border: 1px solid rgb(221,221,221);*/
+		    margin: .2rem .1rem 0 .15rem;
+		  /*  border-radius: .1rem;*/
+			}
+			.placeholder{
+				padding: .15rem;
+				border: 1px solid rgb(16,142,233);
+    		    border-radius: .1rem;
+    		    
+			}
+			.placeholder-click{
+				background-color: rgb(16,142,233);
+			    border: 1px solid rgb(16,142,233);
+			    color: #fff;
+			}
+			.page__bd_spacing{
+				background-color: #fff;
+				padding: 0 .1rem;
+    		    padding-bottom: .25rem;
+			}
+			.weui-flex__item {
+				font-size: .35rem;
+				color: rgb(16,142,233);
+			}
+			.weui-flex__item span{
+				font-size: .25rem;
+				color: rgb(84,183,255);
+			}
+			
+			.placeholder-click{/*点击置换颜色*/
+				background-color: rgb(16,142,233);
+			    border: 1px solid rgb(16,142,233);
+			    color: #fff;
+			}
+			.placeholder-click span{/*点击置换颜色*/
+			    color: #fff;
+			}
+			
+			.modeOfPayment{
+				margin-top: .24rem;
+			}
+			
+		/*上拉弹出*/
+    	.toolbar .toolbar-inner{
+    		height: 1rem;
+    		border-bottom: 1px solid #eee;
+    	}
+    	.weui-popup__modal .modal-content{
+    		padding-top: 1rem;
+    	}
+    	.topUp .toolbar .toolbar-inner .close-popup,.topUp .toolbar .toolbar-inner .title{
+    		height: 1rem;
+		    font-size: .36rem;
+		    line-height: 1rem;
+		    right: inherit;
+    	}
+    	.topUp .modal-content .weui-grids{
+    		max-height: 5rem;
+    		overflow: inherit;
+    		background-color: #fff;
+    	}
+    	.topUp .weui-popup__modal .toolbar{
+    		background-color: #fff;
+    	}
+    	.topUp .toolbar .toolbar-inner .close-popup{
+    		color: rgb(153,153,153);
+		    font-size: .8rem;
+		    /* font-weight: 100; */
+		    padding-left: .2rem;
+
+    	}	
+			
+    </style>
+    
+</head>
+<body ontouchstart class="topUp">
+		<div class="m-cell m-cellMargin">
+				<div class="cell-item">
+		        <div class="cell-left left">充值米粒数 </div>
+		        <div class="cell-right">
+		        	<input type="text" class="cell-input input-padding" required placeholder="请输入充值数" autocomplete="off" />
+		        	<!-- <a href="javascript:;"><img src="../images/guanbi.png" /></a> -->
+		        <!-- 	<a href="javascript:;" class="clear" id="qsgxxm_qk"></a> -->
+		        	<span class="yuan">
+		        		元
+		        	</span>
+		    		</div>
+				</div>
+		</div>
+		<div class="page__bd page__bd_spacing">
+		  <div class="weui-flex">
+		    <div class="weui-flex__item">
+		    	<div class="placeholder" tabindex="10">
+		    		10米粒
+		    		<br />
+		    		<span>10.00元</span>
+		    	</div>
+		    	
+		    </div>
+		    <div class="weui-flex__item">
+		    	<div class="placeholder" tabindex="40">
+		    		50米粒
+		    		<br />
+		    		<span>40.00元</span>
+		    	</div>
+		    </div>
+		    <div class="weui-flex__item">
+		    	<div class="placeholder" tabindex="90">
+		    		100米粒
+		    		<br />
+		    		<span>90.00元</span>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+		<div class="m-cell modeOfPayment">
+		    <div class="cell-item">
+		        <div class="cell-left">支付方式</div>
+		        <div class="cell-right">储蓄卡支付</div>
+		    </div>
+		    <div class="cell-item iAm">
+		        <div class="cell-left">支付账户</div>
+		        <div class="cell-right">
+		        	<input type="text" class="cell-input open-popup" placeholder="请选择" readonly autocomplete="off" id="qsgx" data-target="#half"/>
+		        	<!--<span class="xlk_qxz">请选择 &nbsp;</span><img src="../images/xiajiantou@2x.png" class="qxz">-->
+		        	<span class="dayu">
+		        		
+		        	</span>
+		        </div>
+		    </div>
+		</div>	
+		<div class="m-button">
+	      <button type="button" class="btn-block generate" id="formSubitBtn">充值</button>
+	 	</div>
+	 	
+    <div id="half" class='weui-popup__container popup-bottom'>
+      <div class="weui-popup__overlay"></div>
+      <div class="weui-popup__modal">
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <a href="javascript:;" class="picker-button close-popup">×</a>
+            <h1 class="title">支付账户</h1>
+          </div>
+        </div>
+        <div class="modal-content">
+          <div class="weui-grids">
+            	<div class="m-cell">
+            		<div class="cell-item">
+				        <div class="cell-left"><span class="cell-icon"><img src="//static.ydcss.com/ydui/img/logo.png" /></span>使用其他还款账户</div>
+				        <div class="cell-right"></div>
+				    </div>
+				    <label class="cell-item">
+				        <span class="cell-left"><span class="cell-icon"><img src="//static.ydcss.com/ydui/img/logo.png" /></span>建设银行(1234)</span>
+				        <label class="cell-right">
+				            <input type="radio" name="radio" checked/>
+				            <i class="cell-radio-icon"></i>
+				        </label>
+				    </label>
+				    <label class="cell-item">
+				        <span class="cell-left"><span class="cell-icon"><img src="//static.ydcss.com/ydui/img/logo.png" /></span>建设银行(1234)</span>
+				        <label class="cell-right">
+				            <input type="radio" name="radio"/>
+				            <i class="cell-radio-icon"></i>
+				        </label>
+				    </label>
+				</div>
+          </div>
+        </div>
+      </div>
+    </div>	 	
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+/*	  $(function(){
+    
+        $('#qsgx').on('click', function () {
+	        weui.picker([{
+	            label: '支付宝',
+	            value: "支付宝"
+	        }, {
+	            label: '微信',
+	            value: '微信'
+	        }], {
+            onChange: function (result) {
+                console.log(result);
+                
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                $("#qsgx").val(result);
+            }
+        });
+    });
+});
+	  */
+	 
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+        $(".placeholder").on("click",function(){
+	    	$(".placeholder").removeClass("placeholder-click");
+	    	$(this).toggleClass('placeholder-click');
+	    	console.log($(this).attr('tabindex'));
+	    /*	for(var i=0; i<$(".placeholder").length;i++){
+		    	if($(this).is('.placeholder-click')){
+		    		console.log('you');
+		    		console.log($(this).attr('tabindex'));
+		    	}else{
+		    		console.log('mei');
+		    	}
+		    }*/
+		   	$("#formSubitBtn").css('background-color','rgb(16,142,233)');
+	    });
+    	console.log($(".placeholder").length);
+      
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

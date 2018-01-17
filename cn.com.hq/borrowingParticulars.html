@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>借款详情</title><!--借款详情 页面-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.borrowingParticulars .serialNumber>span{
+    		padding-left: .3rem;
+    	}
+    	.borrowingParticulars .cell-icon img {
+		    height: .6rem;
+		}
+		.borrowingParticulars .type{
+			font-size: .25rem;
+    		color: rgb(153,153,153);
+		}
+		.borrowingParticulars .index .border-left{
+			padding-left: .15rem;
+		    border-left: 4px solid rgb(16,142,233);
+		    font-size: .25rem;
+		}
+		.borrowingParticulars .totalSum{
+			font-size: .35rem;
+		    padding: .2rem .24rem 0;
+		    color: rgb(102,102,102);
+		}
+		.borrowingParticulars .totalSum-money{
+			/*height: .7rem;*/
+			/*padding-bottom: .24rem;*/
+		}
+		.borrowingParticulars .totalSum-money .cell-left{
+			font-size: .6rem;
+		}
+		.borrowingParticulars .totalSum-money .cell-right{
+			/*min-height: .7rem;*/
+			color: rgb(102,102,102);
+		}
+		
+		#main2>div{
+			
+		}
+		ul li{
+			text-align: left;
+			padding: .1rem 0;
+			font-size: .25rem;
+			color: rgb(102,102,102);
+		}
+		ul li span{
+			width: 2rem;
+    		display: inline-block;
+		}
+		ul li i{
+			display: inline-block;
+		    width: .2rem;
+		    height: .2rem;
+		    background-color: rgb(183,223,252);
+		    margin-right: .2rem;
+		}
+		ul .loanAmount i{
+			background-color: rgb(34,102,176);
+		}
+		ul .pass i{
+			background-color: rgb(51,161,240);
+		}
+		ul .applyFor i{
+			background: -webkit-linear-gradient(rgb(34,102,176), rgb(183,223,252)); /* Safari 5.1 - 6.0 */
+		    background: -o-linear-gradient(rgb(34,102,176), rgb(183,223,252)); /* Opera 11.1 - 12.0 */
+		    background: -moz-linear-gradient(rgb(34,102,176), rgb(183,223,252)); /* Firefox 3.6 - 15 */
+		    background: linear-gradient(rgb(34,102,176), rgb(183,223,252)); /* 标准的语法（必须放在最后） */
+		}
+		ul .passingRate i{
+			background: -webkit-linear-gradient(rgb(51,161,240), rgb(34,102,176)); /* Safari 5.1 - 6.0 */
+		    background: -o-linear-gradient(rgb(51,161,240), rgb(34,102,176)); /* Opera 11.1 - 12.0 */
+		    background: -moz-linear-gradient(rgb(51,161,240), rgb(34,102,176)); /* Firefox 3.6 - 15 */
+		    background: linear-gradient(rgb(51,161,240), rgb(34,102,176)); /* 标准的语法（必须放在最后） */
+		}
+		.borrowingParticulars .m-grids-2{
+			margin-bottom: .24rem;
+		}
+		.borrowingParticulars .m-grids-2 .grids-item:not(:nth-child(2n)):before,.borrowingParticulars .grids-item:after{
+			border: 0;
+		}
+		.borrowingParticulars .record .record-tu{
+			text-align: -webkit-center;
+		}
+		.borrowingParticulars .record .record-tu>img{
+			width: 3rem;
+			padding-bottom: .24rem;
+		}
+		.weui-cell__hd img{
+			width: .8rem;
+		    margin-right: 5px;
+		    display: block;
+		    border-radius: 1rem;
+		}
+		
+		/*btn*/
+	.btn-block{
+		display: inline-block;
+		width: 47%;
+		margin-top:0;
+		border: 1px solid rgb(16, 142, 233);
+		height: .8rem;
+		line-height: .8rem;
+		font-size: .3rem;
+	}
+	.generate {
+		background-color: rgb(16, 142, 233);
+	}
+	.m-button {
+		/*position: absolute;*/
+		margin-bottom: .5rem;
+		width: 100%;
+		margin-top: .8rem;
+	}
+	.sampleReport {
+		color: rgb(16, 142, 233);
+		background-color: #fff;
+		border: 1px solid rgb(16, 142, 233);
+		margin-right: .25rem;
+	}
+	
+	
+	.m-navbar{
+		height: 1.2rem;
+	    padding: .1rem 0;
+	}
+	.m-navbar .navbar-item img{
+		width: .8rem;
+	    margin-right: .2rem;
+	    border-radius: 1rem;
+	}
+	.navbar-item .back-ico:before, .navbar-item .next-ico:before{
+		color: rgb(153,153,153);
+	}
+	.m-navbar:after{
+		border: 0;
+	}
+	.navbar-center{
+		font-size: .35rem;
+		color: rgb(51,51,51);
+	}
+    </style>
+    
+</head>
+<body ontouchstart class="borrowingParticulars">
+	<div class="m-cell">
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left serialNumber">编号 <span> 2018191919118191918191</span></div>
+	        <div class="cell-right cell-arrow">详情</div>
+	    </a>
+	    <div class="cell-item">
+	        <div class="cell-left type">借款类型：2017-12-21</div>
+	        <div class="cell-right"><span class="cell-icon"><img src="img/underwaytu@3x.png" /></span></div>
+	    </div>
+	</div>
+	<div class="m-cell index">
+	    <div class="cell-item">
+	        <div class="cell-left"><span class="border-left">借款指标</span></div>
+	        <div class="cell-right"></div>
+	    </div>
+	    <p class="totalSum">借款总额（元）</p>
+	    <div class="cell-item totalSum-money">
+	        <div class="cell-left ">1.00</div>
+	        <div class="cell-right">处理时间1小时</div>
+	    </div>
+	</div>
+	<div class="m-grids-2">
+	    <a href="#" class="grids-item">
+	        	 <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+			<div id="main2" style="height:3rem;text-align: -webkit-center;"></div>
+	    </a>
+	    <a href="#" class="grids-item">
+	        <div class="grids-txt">
+	        	<ul>
+	        		<li><i></i><span>浏览量</span>10</li>
+	        		<li class="loanAmount"><i></i><span>申请出借量</span>10</li>
+	        		<li class="pass"><i></i><span>通过量</span>10</li>
+	        		<li class="applyFor"><i></i><span>申请率</span>10</li>
+	        		<li class="passingRate"><i></i><span>通过率</span>10</li>
+	        	</ul>
+	        </div>
+	    </a>
+	</div>
+	<div class="m-cell index record">
+	    <div class="cell-item">
+	        <div class="cell-left"><span class="border-left">申请出借记录</span></div>
+	        <div class="cell-right"></div>
+	    </div>
+	    <p class="record-tu"><img src="img/group@3x.png" /></p><!--申请记录为空  显示-->
+	    <div class="m-navbar">
+		    <a href="#" class="navbar-item">
+		        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=">
+				李四
+		    </a>
+		    <div class="navbar-center">
+		        300.00元
+		    </div>
+		    <a href="#" class="navbar-item">
+		                 待处理<i class="next-ico"></i>
+		    </a>
+		</div>
+		<div class="m-navbar">
+		    <a href="#" class="navbar-item">
+		        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=">
+				李四
+		    </a>
+		    <div class="navbar-center">
+		        300.00元
+		    </div>
+		    <a href="#" class="navbar-item">
+		                 待处理<i class="next-ico"></i>
+		    </a>
+		</div>
+		<div class="m-navbar">
+		    <a href="#" class="navbar-item">
+		        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=">
+				李四
+		    </a>
+		    <div class="navbar-center">
+		        300.00元
+		    </div>
+		    <a href="#" class="navbar-item">
+		                 待处理<i class="next-ico"></i>
+		    </a>
+		</div>
+	</div>
+	<div class="m-button">
+		<button type="button" class="btn-block btn-disabled sampleReport" id="formSubitBtn">关闭</button>
+		<button type="button" class="btn-block btn-disabled generate " id="formSubitBtn">邀请出借人</button>
+	</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="js/echarts.simple.min.js" ></script>
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+        var myChart = echarts.init(document.getElementById('main2'));
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    color:['rgb(34,102,176)','rgb(183,223,252)','rgb(51,161,240)'],  //手动设置每个图例的颜色
+    legend: {
+        orient: 'vertical',
+        x: 'center',
+        data:['申请出借量','浏览量','通过量']
+    },
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['40%', '80%'],
+            avoidLabelOverlap: true,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: false,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: true
+                }
+            },
+            data:[
+                {value:5, name:'申请出借量'},
+                {value:3, name:'浏览量'},
+                {value:2, name:'通过量'}
+            ]
+        }
+    ]
+};
+        myChart.setOption(option);	
+	
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

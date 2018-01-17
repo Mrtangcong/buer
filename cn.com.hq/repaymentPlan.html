@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>收还款计划</title><!--收还款计划-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.confirmed-height{
+    		height: .4rem;
+    	}
+    	.tab-nav-item.tab-active {
+		    color: rgb(16,142,233);
+		}
+		.tab-nav-item.tab-active:before{
+			width: 100%;
+			left:0;
+			margin-left:0;
+		}
+		.tab-panel{
+			margin-top: .24rem;
+		}
+		/*.tab-panel .tab-panel-item{
+			padding: 0;
+		}*/
+		/*.weui-form-preview__item{
+			width: 90%;
+			display: inline-table;
+		}
+		.weui-form-preview__bd .cell-arrow{
+			display: inline-table;
+		    width: 5%;
+		    position: relative;
+		    top: .8rem;
+		    padding: 0;
+		}
+		.weui-form-preview__bd{
+			padding-left: 0;
+			padding-right: .2rem;
+		}
+		.weui-form-preview__label{
+			width: 2.84rem;
+    		text-align: left;
+    		text-align-last: inherit
+		}
+		.text-align{
+			text-align:left;
+		}
+		.weui-form-preview__item .color{
+			color: rgb(51,51,51);
+			font-size: .3rem;
+		}*/
+		/*.weui-form-preview__item .color-money{
+			color: rgb(16,142,233);
+		}
+		.weui-form-preview__item .color-notarize{
+			color: rgb(248,107,18);
+		}
+		.weui-form-preview__bd{
+			position: relative;
+		}*/
+		/*.tab-panel-item .raiseFunds{
+			margin-bottom: 0;
+		}
+		.weui-form-preview__bd .weui-form-preview__item>img{
+			position: absolute;
+		    z-index: 10;
+		    width: .6rem;
+		    top:0;
+		    left: 0;
+		}
+		.background-color{
+			height: .24rem;
+    		background-color: rgb(246,246,246);
+		}
+		.weui-form-preview__bd .weui-form-preview__item .overdue{
+			right: .1rem;
+		    left: inherit;
+		    width: .3rem;
+		}
+		.end .weui-form-preview__bd .color-notarize{
+			color:rgb(153,153,153);
+		}
+		.rank-tu{
+			width: .6rem;
+			padding-right: .3rem;
+		    border-right: 1px solid #ccc;
+		}
+		.filtrate-tu{
+			width: .2rem;
+		}
+		.oneself{
+			padding-right: .3rem;
+		}
+		.span-padding{
+			padding-left: .2rem;
+		}
+		 .oneself:after {
+		    content: '';
+		    position: absolute;
+		    left: auto;
+		    top: auto;
+		    height: 50%;
+		    width: 1px;
+		    background-color: #ccc;
+		    margin-left: .3rem;
+		    }
+		.raiseFunds .cell-item{
+			height: .7rem;
+		}
+		.raiseFunds .cell-right{
+			height: .7rem;
+			min-height: .7rem;
+		}*/
+		.repaymentPlan .fiex{
+			display: inline-block;
+			width: 100%;
+			color: rgb(102,102,102);
+			text-align: center;
+			padding: .1rem;
+		}
+		.repaymentPlan .fiex p{
+			width: 30%;
+			display: inline-block;
+			/*margin: 0 .05rem;*/
+		}
+		.repaymentPlan .tab-panel .tab-panel-item{
+			padding: 0rem;
+		}
+		.date-frame .fiex{
+			font-size: .3rem;
+			padding: .2rem 0;
+			border-bottom: .5px solid rgb(246,246,246);
+		}
+		.repaymentPlan .tab-panel .tab-panel-item .date{
+			background-color: rgb(246,246,246);
+			font-size: .2rem;
+			color: rgb(153,153,153);
+			padding: 0.1rem 0;
+		}
+		/*.repaymentPlan .title p{
+			width: 33%;
+			padding: .1rem 0;
+		}*/
+    </style>
+    
+</head>
+<body ontouchstart class="repaymentPlan">
+    <div id="J_Tab" class="m-tab">
+    <ul class="tab-nav">
+        <li class="tab-nav-item tab-active">
+        	<a href="javascript:;" class="confirmed-height">1300.00</a>
+        	<a href="javascript:;">全部(8)</a>
+        </li>
+        <li class="tab-nav-item">
+        	<a href="javascript:;" class="confirmed-height">300.00</a>
+        	<a href="javascript:;">收款(4)</a>
+        </li>
+        <li class="tab-nav-item">
+        	<a href="javascript:;" class="confirmed-height">1000.00</a>
+        	<a href="javascript:;">还款(4)</a>
+        </li>
+    </ul>
+    <div class="tab-panel">
+        <div class="tab-panel-item tab-active"><!--第一个-->
+        	<div class="fiex title">
+        		<p>日期</p>
+        		<p>收款</p>
+        		<p>还款</p>
+        	</div>
+        	<div class="date-frame">
+	        	<div class="fiex date">
+	        		<p>2016年11月账单</p>
+	        		<p></p>
+	        		<p>11／01-11/31</p>
+	        	</div>
+	        	<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p>200.00</p>
+	        		<p>300.00</p>
+	        	</div>
+        		<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p>200.00</p>
+	        		<p>300.00</p>
+        		</div>
+        	</div>
+        	<div class="date-frame">
+	        	<div class="fiex date">
+	        		<p>2016年11月账单</p>
+	        		<p></p>
+	        		<p>11／01-11/31</p>
+	        	</div>
+	        	<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p>200.00</p>
+	        		<p>300.00</p>
+	        	</div>
+        		<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p>200.00</p>
+	        		<p>300.00</p>
+        		</div>
+        	</div>
+        </div>
+        <div class="tab-panel-item second"><!--第二个-->
+	        <div class="fiex">
+        		<p>日期</p>
+        		<p></p>
+        		<p>收款</p>
+        	</div>
+        	<div class="date-frame">
+	        	<div class="fiex date">
+	        		<p>2016年11月账单</p>
+	        		<p></p>
+	        		<p>11／01-11/31</p>
+	        	</div>
+	        	<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+	        	</div>
+        		<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+        		</div>
+        	</div>
+        	<div class="date-frame">
+	        	<div class="fiex date">
+	        		<p>2016年11月账单</p>
+	        		<p></p>
+	        		<p>11／01-11/31</p>
+	        	</div>
+	        	<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+	        	</div>
+        		<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+        		</div>
+        	</div>	
+        </div>
+        <div class="tab-panel-item thirdly"><!--第三个-->
+        	<div class="fiex">
+        		<p>日期</p>
+        		<p></p>
+        		<p>还款</p>
+        	</div>
+        	<div class="date-frame">
+	        	<div class="fiex date">
+	        		<p>2016年11月账单</p>
+	        		<p></p>
+	        		<p>11／01-11/31</p>
+	        	</div>
+	        	<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+	        	</div>
+        		<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+        		</div>
+        	</div>
+        	<div class="date-frame">
+	        	<div class="fiex date">
+	        		<p>2016年11月账单</p>
+	        		<p></p>
+	        		<p>11／01-11/31</p>
+	        	</div>
+	        	<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+	        	</div>
+        		<div class="fiex">
+	        		<p>2017-01-01</p>
+	        		<p></p>
+	        		<p>300.00</p>
+        		</div>
+        	</div>	
+        </div>
+    </div>
+</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        var $tab = $('#J_Tab');
+
+	    $tab.tab({
+	        nav: '.tab-nav-item',
+	        panel: '.tab-panel-item',
+	        activeClass: 'tab-active'
+	    });
+	
+	    $tab.find('.tab-nav-item').on('open.ydui.tab', function (e) {
+	        console.log('索引：%s - [%s]正在打开', e.index, $(this).text());
+	    });
+	
+	    $tab.find('.tab-nav-item').on('opened.ydui.tab', function (e) {
+	        console.log('索引：%s - [%s]已经打开了', e.index, $(this).text());
+	    });
+	    
+	    //列表点击
+	    $(".weui-form-preview__bd").on('click',function(){
+	    	window.location.href="oweDetails.html";
+	    })
+	    
+	   /* for(var i=0; i<$(".underway .color-notarize").length;i++){
+	    	console.log($(".underway .color-notarize").html());
+	    }*/
+	    //console.log($(".underway .color-notarize").html());
+	    
+        
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

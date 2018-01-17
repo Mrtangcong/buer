@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>更多设置</title><!--更多设置 页面-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.m-cell{
+    		/*margin-bottom:0;*/
+    		margin-top: .24rem;
+    	}
+    	.m-button{
+    		padding: 0;
+    	}
+    	.m-button button{
+    		border-radius: 0;
+    		height: .9rem;
+    		line-height: .9rem;
+    		background-color: #fff;
+    		color: #000;
+    	}
+    	.m-cell .cell-arrow{
+    		color: rgb(16,142,233);
+    		font-size: .3rem;
+    	}
+    </style>
+    
+</head>
+<body ontouchstart>
+    <div class="m-cell">
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left">修改登录密码</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left">交易密码</div>
+	        <div class="cell-right cell-arrow">未设置</div>
+	    </a>
+	</div>
+	<div class="m-cell">
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left">帮助中心</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left">关于我们</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	</div>
+	<div class="m-button">
+	    <button type="button" class="btn-block btn-disabled" id="formSubitBtn">退出登录</button>
+	</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        
+        
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>信用认证</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.zl{
+				padding: .2rem .2rem;
+				height: .6rem;
+			}
+			.zl .cell-left{
+				border-left: .08rem solid rgb(16,142,233);
+		    padding-left: .15rem;
+		    font-size: .2rem;
+		    color: rgb(153,153,153);
+			}
+			.required{
+				  height: .4rem;
+			}
+			.required-border{
+				margin-top: .15rem;
+				margin-bottom: .2rem;
+			}
+			.m-grids-4:before,.required-border:after,.cell-item:not(:last-child):after,.m-grids-4 .grids-item:not(:nth-child(4n)):before,.grids-item:after{
+				border: none;
+			}
+			.btn-disabled{
+				display: inline-block;
+	    		width: 47%;
+	    		margin-top:0;
+	    		border: 1px solid rgb(16,142,233);
+	    		/*background-color: rgb(16, 142, 233);*/
+			}
+			.generate{
+				margin-right: .25rem;
+				background-color: rgb(16,142,233);
+			}
+			.m-button{
+				position: absolute;
+			    bottom: .5rem;
+			    width: 100%;
+			}
+			.sampleReport{
+				color: rgb(16,142,233);
+			    background-color: #fff;
+			    border: 1px solid rgb(16,142,233);
+			}
+    </style>
+    
+</head>
+<body ontouchstart>
+    <div class="m-cell required-border">
+			<span class="cell-item zl" href="javascript:;">
+			   <div class="cell-left required">以下信息为必填项</div>
+			   <div class="cell-right"></div>
+			</span>
+			<div class="m-grids-4">
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/identity@3x.png"></div>
+			        <div class="grids-txt"><span>身份信息</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/basic@3x.png"></div>
+			        <div class="grids-txt"><span>基本信息</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/mobile@3x.png"></div>
+			        <div class="grids-txt"><span>运营商</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/sesame@3x.png"></div>
+			        <div class="grids-txt"><span>芝麻信用</span></div>
+			    </a>
+			</div>
+		</div>
+		<div class="m-cell required-border">
+			<span class="cell-item zl" href="javascript:;">
+			   <div class="cell-left required">以下信息为增信数据项</div>
+			   <div class="cell-right"></div>
+			</span>
+			<div class="m-grids-4">
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/taobao@3x.png"></div>
+			        <div class="grids-txt"><span>淘宝</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/socialSecurity@3x.png"></div>
+			        <div class="grids-txt"><span>社保</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/accumulationFund@3x.png"></div>
+			        <div class="grids-txt"><span>公积金</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/learnToBelieve@3x.png"></div>
+			        <div class="grids-txt"><span>学信网</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/crossing@3x.png"></div>
+			        <div class="grids-txt"><span>人行征信</span></div>
+			    </a>
+			    <a href="#" class="grids-item">
+			        <div class="grids-icon"><img src="img/autoInsurance@3x.png"></div>
+			        <div class="grids-txt"><span>车险</span></div>
+			    </a>
+			</div>
+		</div>
+		<div class="m-button">
+		    <button type="button" class="btn-block btn-disabled generate" id="formSubitBtn">生成报告</button>
+		    <button type="button" class="btn-block btn-disabled sampleReport" id="formSubitBtn">示例报告</button>
+		</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+  
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        
+    
+		
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

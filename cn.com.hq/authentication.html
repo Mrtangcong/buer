@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的认证</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	.warmPrompt{
+    		padding: .15rem .25rem;
+    		color: rgb(102,102,102);
+    	}
+    	.lamp-textAlign{
+    		text-align: center;
+    	}
+    	.lamp-textAlign img{
+    		display: inline-block;
+    		width: .6rem;
+    		margin: 0 .1rem;
+    	}
+    	.required{
+    		padding: .15rem .25rem;
+    		font-size: .25rem;
+    	}
+    	.m-cell{
+    		margin-bottom:0;
+    	}
+    	.m-button{
+    		padding: 0 .8rem .6rem .8rem;
+    	}
+    	.m-button button{
+    		border-radius: 0;
+    		height: .8rem;
+    		line-height: .8rem;
+    	}
+    </style>
+    
+</head>
+<body ontouchstart>
+    <div>
+    	<p class="warmPrompt">*温馨提示：请填写真实有效信息以顺利通过审核</p>
+    	<div class="lamp-textAlign">
+    		<img src="img/invalidName-lamp@3x.png"/><!--<img src="img/invalidName-lampBright@3x.png"/> 亮的 img加Bright-->
+    		<img src="img/invalidName-lamp@3x.png"/>
+    		<img src="img/invalidName-lamp@3x.png"/>
+    		<img src="img/invalidName-lamp@3x.png"/>
+    	</div>
+    	<p class="required">必填项</p>
+    </div>
+    <div class="m-cell">
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/identity@3x.png" /></span>身份信息</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/basic@3x.png" /></span>基本信息</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/mobile@3x.png" /></span>手机验证</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/sesame@3x.png" /></span>芝麻认证</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	</div>
+	<p class="required">必填项</p>
+	<div class="m-cell">
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/taobao@3x.png" /></span>淘宝</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/socialSecurity@3x.png" /></span>社保</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/accumulationFund@3x.png" /></span>公积金</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/learnToBelieve@3x.png" /></span>学信网</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/crossing@3x.png" /></span>人行征信</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	    <a class="cell-item" href="javascript:;">
+	        <div class="cell-left"><span class="cell-icon"><img src="img/autoInsurance@3x.png" /></span>车险</div>
+	        <div class="cell-right cell-arrow"></div>
+	    </a>
+	</div>
+	<div class="m-button">
+	    <button type="button" class="btn-block btn-disabled" id="formSubitBtn">生成报告</button>
+	</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        
+        
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

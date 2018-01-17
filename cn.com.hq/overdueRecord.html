@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>逾期记录</title><!--逾期记录 点击-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+    <link rel="stylesheet" href="css/weui.min.css"  />
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    	/*body{
+    		background-color: #fff;
+    		position: relative;
+    		height: 100%;
+    	}*/
+    	.confirmed-height{
+    		height: .4rem;
+    	}
+    	.tab-nav-item.tab-active {
+		    color: rgb(16,142,233);
+		}
+		.tab-nav-item.tab-active:before{
+			width: 100%;
+			left:0;
+			margin-left:0;
+		}
+		.tab-panel{
+			margin-top: .24rem;
+			height: 100%;
+			
+		}
+		.tab-panel .tab-panel-item{
+			padding: 0;
+		}
+		
+		
+		.forReimbursement .weui-media-box_text{
+			text-align: center;
+			padding-bottom: 0;
+			padding-top: .24rem;
+		}
+		.forReimbursement .m-grids-3 .grids-item{
+			padding-top: 0;
+		}
+		.weui-cells{
+			margin-top: 0;
+			overflow: initial;
+			line-height:inherit;
+			height: 100%;
+		}
+		.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before{
+			color: rgb(16,124,233);
+		}
+		.weui-cell__ft{
+			padding-right: .4rem;
+		}
+		.forReimbursement .date{
+			font-size: .3rem;
+			font-weight: none;
+			color: #000;
+		}
+		.forReimbursement .introduce,.forReimbursement .overdue{
+			font-size: .25rem;
+			color: rgb(153,153,153);
+		}
+		.forReimbursement .overdue{
+			color: rgb(240,43,43);
+		}
+		.forReimbursement .weui-cell img{
+			width: .3rem;
+			position: absolute;
+			right: .1rem;
+			top:0;
+		}
+		.margin{
+			height: .24rem;
+			background-color: rgb(246,246,246);
+		}
+    </style>
+    
+</head>
+<body ontouchstart class="forReimbursement">
+    <div id="J_Tab" class="m-tab">
+    <ul class="tab-nav">
+        <li class="tab-nav-item tab-active">
+        	<a href="javascript:;">待还</a>
+        </li>
+        <li class="tab-nav-item">
+        	<a href="javascript:;">待收</a>
+        </li>
+    </ul>
+    <div class="tab-panel">
+        <div class="tab-panel-item tab-active"><!--第一个-->
+	        <div class="weui-cells">
+		        <div class="weui-cell weui-cell_access">
+			            <div class="weui-cell__bd">
+					        <p class="date">2017-04-26到期</p>
+							<p class="introduce">李四／旅游／线下</p>
+						</div>
+		                <div class="weui-cell__ft">
+								<p class="date">2017</p>
+								<p class="overdue">哈哈</p>
+						</div>
+	            </div>
+	            <div class="weui-cell weui-cell_access">
+			            <div class="weui-cell__bd">
+					        <p class="date">2017-04-26到期</p>
+							<p class="introduce">李四／旅游／线下</p>
+						</div>
+		                <div class="weui-cell__ft">
+								<p class="date">2017</p>
+								<p class="overdue">&nbsp;</p>
+						</div>
+	            </div>
+	            <div class="weui-cell weui-cell_access">
+			            <div class="weui-cell__bd">
+					        <p class="date">2017-04-26到期</p>
+							<p class="introduce">李四／旅游／线下</p>
+						</div>
+		                <div class="weui-cell__ft">
+								<p class="date">2017</p>
+								<p class="overdue">&nbsp;</p>
+						</div>
+					<img src="img/overdue-tu@3x.png" />
+	            </div>
+	        </div>
+	</div>
+        <div class="tab-panel-item underway"><!--第二个-->
+	        	<div class="weui-cells">
+		        <div class="weui-cell weui-cell_access">
+			            <div class="weui-cell__bd">
+					        <p class="date">2017-04-26到期</p>
+							<p class="introduce">李四／旅游／线下</p>
+						</div>
+		                <div class="weui-cell__ft">
+								<p class="date">2017</p>
+								<p class="overdue">哈哈</p>
+						</div>
+	            </div>
+	            <div class="weui-cell weui-cell_access">
+			            <div class="weui-cell__bd">
+					        <p class="date">2017-04-26到期</p>
+							<p class="introduce">李四／旅游／线下</p>
+						</div>
+		                <div class="weui-cell__ft">
+								<p class="date">2017</p>
+								<p class="overdue">&nbsp;</p>
+						</div>
+	            </div>
+	            <div class="weui-cell weui-cell_access">
+			            <div class="weui-cell__bd">
+					        <p class="date">2017-04-26到期</p>
+							<p class="introduce">李四／旅游／线下</p>
+						</div>
+		                <div class="weui-cell__ft">
+								<p class="date">2017</p>
+								<p class="overdue">&nbsp;</p>
+						</div>
+					<img src="img/overdue-tu@3x.png" />
+	            </div>
+	        </div>
+
+       </div>
+    </div>
+</div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+        var dialog = win.YDUI.dialog;
+        var $tab = $('#J_Tab');
+
+	    $tab.tab({
+	        nav: '.tab-nav-item',
+	        panel: '.tab-panel-item',
+	        activeClass: 'tab-active'
+	    });
+	
+	    $tab.find('.tab-nav-item').on('open.ydui.tab', function (e) {
+	        console.log('索引：%s - [%s]正在打开', e.index, $(this).text());
+	    });
+	
+	    $tab.find('.tab-nav-item').on('opened.ydui.tab', function (e) {
+	        console.log('索引：%s - [%s]已经打开了', e.index, $(this).text());
+	    });
+	    
+	    //列表点击
+	    $(".weui-form-preview__bd").on('click',function(){
+	    	window.location.href="oweDetails.html";
+	    })
+	    
+	   /* for(var i=0; i<$(".underway .color-notarize").length;i++){
+	    	console.log($(".underway .color-notarize").html());
+	    }*/
+	    //console.log($(".underway .color-notarize").html());
+	    
+        
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

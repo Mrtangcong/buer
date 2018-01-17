@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>填写储蓄卡信息</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+ <!--   <link rel="stylesheet" href="css/weixin.min.css"  />-->
+	<link rel="stylesheet" href="css/jquery-weui.min.css"  />
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+	    ::-webkit-input-placeholder { /* WebKit browsers */ 
+		color: rgb(204,204,204); 
+		} 
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+		color: rgb(204,204,204); 
+		} 
+		::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+		color: rgb(204,204,204); 
+		} 
+		:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+		color: rgb(204,204,204); 
+		}  
+    	.bindBankCard .step ul{
+    		justify-content: space-around;
+    		display: flex;
+    	}
+    	.bindBankCard .step li{
+    		display: inline-flex;
+    		flex-direction: column;
+    		padding: .2rem .2rem;
+    		text-align: center;
+    	}
+    	.bindBankCard .step li i{
+    		background-color: rgb(216,216,216);
+		    display: inline-flex;
+		    justify-content: center;
+		    /* text-align: -webkit-match-parent; */
+		    width: 20px;
+		    border-radius: 2rem;
+		    color: #fff;
+		    margin-bottom: .1rem;
+    	}
+    	.bindBankCard .step li p{
+    		color: rgb(216,216,216);
+    	}
+    	.bindBankCard .step .step-line{
+    		border-bottom: 1px solid rgb(216,216,216);
+		    position: relative;
+		    top: -.3rem;
+		    left: 1.3rem;
+    		width: 1.5rem;
+    	}
+    	.bindBankCard .step .step-line2{
+    		left: inherit;
+    		right: 1.3rem;
+    	}
+    	.bindBankCard .step li .color{
+    		background-color: rgb(16,142,233);
+    	}
+    	.bindBankCard .step li .step-txt1{
+    		color: rgb(16,142,233);
+    	}
+    	.step{
+    		background-color:#fff;
+    		margin-bottom: .24rem;
+    	}
+    	.bindBankCard .m-cell .cell-left{
+    		width: 1.2rem;
+    	}
+    	.bindBankCard>p{
+    		padding: 0 .25rem;
+		    font-size: .3rem;
+		    color: rgb(153,153,153);
+    	}
+    	.m-button {
+    		margin: .8rem .5rem 0;
+    		padding: 0;
+    	}
+    	
+    	.btn-disabled {
+		    border-radius: .1rem;
+		    height: .9rem;
+		    line-height: .9rem;
+    	}
+    	.Bank{
+    		padding-right: .24rem;
+    		
+    	}
+    	.Bank a{
+    		color: rgb(16,142,233);
+    		font-size: .3rem;
+    	}
+    	.Bank:not(:last-child):after{
+    		border-bottom:0;
+    	}
+    	.toolbar .toolbar-inner{
+    		height: 1rem;
+    	}
+    	.weui-popup__modal .modal-content{
+    		padding-top: 1rem;
+    	}
+    	.bindBankCard .toolbar .toolbar-inner .close-popup,.bindBankCard .toolbar .toolbar-inner .title{
+    		height: 1rem;
+		    font-size: .36rem;
+		    line-height: 1rem;
+		    right: inherit;
+    	}
+    	.bindBankCard .modal-content .weui-grids{
+    		max-height: 5rem;
+    		overflow: inherit;
+    		background-color: rgb(246,246,246);
+    	}
+    	.bindBankCard .weui-popup__modal .toolbar{
+    		background-color: #fff;
+    	}
+    	.bindBankCard .toolbar .toolbar-inner .close-popup{
+    		color: rgb(153,153,153);
+		    font-size: .8rem;
+		    /* font-weight: 100; */
+		    padding-left: .2rem;
+
+    	}
+    	.btn-warning{
+    		background-color: rgb(16,142,233);
+    		width: 2rem;
+		    height: .6rem;
+		    line-height: .6rem;
+    	}
+    	.btn-disabled{
+    		background-color: #ccc;
+    	}
+    	
+    	
+    	/**/
+    	.bindBankCard .p-fontSize{
+    		font-size: .22rem;
+    		padding: .12rem .24rem;
+    	}
+    	.step{
+    		margin-bottom: .0rem;
+    	}
+    	.bindBankCard .notCheckCode{
+    		text-align: center;
+		    margin-top: .5rem;
+		    color: rgb(16,142,233);
+    	}
+    	.mask-black-dialog .confirm-hd{/*弹出框*/
+			text-align: center;
+		}
+    </style>
+    
+</head>
+<body ontouchstart class="bindBankCard">
+	<div class="step">     	
+                <ul>
+                    <li class=" ">
+                        <span class="num"><i>1</i></span>                	
+                        <a class="step-line"></a>
+                        <p class="step-txt2">添加储蓄卡</p>
+                    </li>
+                    <li class="">
+                        <span class="num"><i>2</i></span>
+                        
+                        <p class="step-txt2">填写储蓄卡信息</p>
+                    </li>
+                    <li class="">
+                        <span class="num"><i class="color">3</i></span>
+                        <a class="step-line step-line2"></a>
+                        <p class="step-txt1">验证手机号</p>
+                        
+                    </li>
+                </ul>
+	</div>
+	<p class="p-fontSize">本次操作需要短信确认，请输入1511111111收到的短信校验码</p>
+	<div class="m-cell">
+        <div class="cell-item">
+                <div class="cell-left">校验码</div>
+                <div class="cell-right">
+                    <input type="number" pattern="[0-9]*" class="cell-input" placeholder="请输入校验码" autocomplete="off" />
+                    <a href="javascript:;" class="btn btn-warning" id="J_GetCode">获取验证码</a>
+                </div>
+            </div>
+       </div>
+	<!--<p>提示：请输入本人银行卡信息，与实名认证信息保持一致</p>-->
+	<div class="m-button">
+	      <button type="button" class="btn-block btn-disabled" id="formSubitBtn">绑定</button>
+	</div>
+	<p class="p-fontSize notCheckCode" id="notCheckCode">收不到校验码？</p>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+      /*  弹出框*/
+        $('#notCheckCode').on('click', function () {
+            dialog.confirm('手机收不到验证码怎么办？', '<p>1、请确认该预留手机号是否为当前使用手机号；<p>2、请查看短信是否被安全软件拦截，若是双卡双待手机，请检查副卡短信情况；</p><p>3、由于运营商网络原因，可能存在短信延迟，请耐心等待稍后再试；</p>', [
+                {
+                    txt: '取消',
+                    color: false, 
+                    callback: function () {
+                       /* dialog.toast('你点了取消', 'none', 1000);*/
+                    }
+                }
+            ]);
+        });
+		/* */
+		var $getCode = $('#J_GetCode');
+        // 定义参数
+        $getCode.sendCode({
+            disClass: 'btn-disabled', // 禁用按钮样式【必填】
+            secs: 15, // 倒计时时长 [可选，默认：60秒]
+            run: false,// 是否初始化自动运行 [可选，默认：false]
+            runStr: '{%s}S',// 倒计时显示文本 [可选，默认：58秒后重新获取]
+            resetStr: '重获验证码'// 倒计时结束后按钮显示文本 [可选，默认：重新获取验证码]
+        });
+
+        $getCode.on('click', function () {
+            var $this = $(this);
+            dialog.loading.open('发送中...');
+            // ajax 成功发送验证码后调用【start】
+            setTimeout(function () { //模拟ajax发送
+                dialog.loading.close();
+                $this.sendCode('start');
+                dialog.toast('已发送', 'success', 1500);
+            }, 800);
+        });
+		
+		
+	}(window, jQuery);
+
+</script>
+</body>
+</html>

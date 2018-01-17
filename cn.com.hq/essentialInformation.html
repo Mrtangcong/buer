@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>基本信息</title><!--个人中心  基本信息-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+   
+<!--    <link rel="stylesheet" href="css/weixin.min.css"  />-->
+<!--	<link rel="stylesheet" href="css/jquery-weui.min.css"  />-->
+    
+    
+     <link rel="stylesheet" href="css/ydui.css" />
+     <link rel="stylesheet" href="css/weui1.min.css"  />
+    <link rel="stylesheet" href="style.css"  />
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="js/ydui.flexible.js"></script>
+    <style>
+    .wenzi{
+    		text-align: center;
+    		padding: .2rem 0;
+    	}
+	::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: rgb(204,204,204); 
+	} 
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: rgb(204,204,204); 
+	} 
+	::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: rgb(204,204,204); 
+	} 
+	:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: rgb(204,204,204); 
+	}  	
+    	
+  .weui_cells_form .weui_cell_warn{
+   	color: initial;
+   }
+   .xjzd{
+   	align-items: initial;
+   	padding-top:.35rem;
+   }
+   .wbk{height:2rem}
+   .weui_btn_primary {
+	background-color: #abcedc;
+	}
+	.weui_btn_primary:not(.weui_btn_disabled):active {
+		background-color: #abcedc;
+	}
+	.weui_btn_area {
+		margin: 3.176471em 15px 0.3em;
+	}
+	/*.weui_cell{
+		padding:.8rem 15px;
+	}*/
+.weui-picker-modal {
+height:initial;
+background: #fff;
+}
+.weui-picker-modal .toolbar {
+    background: #f7f7f8;
+    height: .7rem;
+}
+.weui-picker-modal .toolbar-inner {
+    height: 2.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    text-align: center;
+}
+.weui-picker-modal .picker-modal-inner {
+    position: relative;
+    height: 4.5rem;
+}
+.weui-picker-overlay, .weui-picker-container{
+	z-index: 111111;
+}
+.weui-picker-modal .picker-button{
+	color: #00a0e9;
+	font-size: initial;
+  height: .5rem;
+  line-height: 0.8rem;
+}
+
+.weui-picker-modal .picker-items{
+	    font-size: .5rem;
+}
+.cell-input{
+	text-align: right;
+	margin: 0;
+	color:rgb(51,51,51);
+}
+.dayu{
+	width: 12px;
+  height: 12px;
+  position: absolute;
+  top:.5rem;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+  -webkit-transform: translate(0,-50%) rotate(-135deg);
+  transform: translate(0,-50%) rotate(-135deg);
+}
+.iAm .cell-right{
+	margin-right: .2rem;
+}
+.yuan{
+	margin-right: .15rem;
+}
+.input-padding{
+	padding-right: .15rem;
+}
+.limit-zi{
+	text-align: right;
+  padding-right: .35rem;
+  padding: .15rem .35rem .3rem 0;
+}
+.limit-zi span{
+	color:rgb(16,142,233)
+}
+.m-cellMargin{
+	margin-bottom:0;
+}
+
+.toolbar .title{
+	line-height: .8rem;
+	font-size: .35rem;
+}
+.agreement-margin{
+	margin-top: .2rem;
+}
+.agreement-margin:not(:last-child):after{
+	border: none;
+}
+.agreement-margin .cell-left{
+	font-size: 0.2rem;
+} 
+.agreement-margin .cell-left .cell-icon>img{
+	height:.3rem;	
+}
+.agreement{
+	color:#10AEFF;
+}
+.m-button{
+	margin: 0 .5rem;
+	padding-right: 0;
+}
+.btn-disabled{
+	border-radius: initial;
+}
+.hint{
+	padding-left: .25rem;
+  padding-top: .4rem;
+  color:rgb(16,142,233);
+}
+.hint-wz{
+	padding-top: .15rem;
+	padding-bottom: 1rem;
+}
+    </style>
+    
+</head>
+<body ontouchstart>
+    <div class="m-cell m-cellMargin">
+			    	<div class="cell-item">
+				        <div class="cell-left left">姓名 </div>
+				        <div class="cell-right">
+				        	<input type="text" class="cell-input input-padding" required placeholder="请输入对方真实姓名" autocomplete="off" />
+				    		</div>
+					</div>
+					<div class="cell-item">
+				        <div class="cell-left left">借款金额 </div>
+				        <div class="cell-right">
+				        	<input type="text" class="cell-input input-padding" required placeholder="请输入整数" autocomplete="off" />
+				        	<!-- <a href="javascript:;"><img src="../images/guanbi.png" /></a> -->
+				        <!-- 	<a href="javascript:;" class="clear" id="qsgxxm_qk"></a> -->
+				        	<span class="yuan">
+				        		元
+				        	</span>
+				    		</div>
+					</div>
+		    <div class="cell-item iAm">
+		        <div class="cell-left">我是</div>
+		        <div class="cell-right">
+		        	<input type="text" class="cell-input my" placeholder="请选择" autocomplete="off" id="qsgx"/>
+		        	<!--<span class="xlk_qxz">请选择 &nbsp;</span><img src="../images/xiajiantou@2x.png" class="qxz">-->
+		        	<span class="dayu">
+		        		
+		        	</span>
+		        </div>
+		    </div>
+		</div>
+		<div class="m-cell m-cellMargin">
+		    <div class="cell-item iAm">
+		        <div class="cell-left">借款日期</div>
+		        <div class="cell-right">
+		      <!--  	<input type="text" class="cell-input my" placeholder="请选择" autocomplete="off" id="shgx" />-->
+		        	<!--<input class="cell-input my" placeholder="请选择" id="date2" type="text" value="">-->
+		        	<input class="cell-input my" placeholder="请选择" id="time10" type="text">
+		        	<!--<span class="xlk_qxz">请选择 &nbsp;</span><img src="../images/xiajiantou@2x.png" class="qxz">-->
+		        	<span class="dayu">
+		        		
+		        	</span>
+		        </div>
+		    </div>
+				<div class="cell-item iAm">
+		        <div class="cell-left">还款期限</div>
+		        <div class="cell-right">
+		        	<input class="cell-input my" placeholder="请选择" id="time11" type="text">
+		        	<!--<span class="xlk_qxz">请选择 &nbsp;</span><img src="../images/xiajiantou@2x.png" class="qxz">-->
+		        	<span class="dayu">
+		        		
+		        	</span>
+		        </div>
+		    </div>
+		    <div class="cell-item iAm">
+		        <div class="cell-left">年化利率</div>
+		        <div class="cell-right">
+		        	<span>
+		        		
+		        	</span>
+		        	<input class="cell-input my" placeholder="0.00元" id="time11" type="text">
+		        	<!--<span class="xlk_qxz">请选择 &nbsp;</span><img src="../images/xiajiantou@2x.png" class="qxz">-->
+		        	<span class="dayu">
+		        		
+		        	</span>
+		        </div>
+		    </div>
+		</div>
+		<div class="m-cell m-cellMargin" id="purposeLoan">
+		    <div class="cell-item">
+		        <div class="cell-left">借款用途</div>
+		        <div class="cell-right cell-arrow"><span>请选择</span></div>
+		    </div>
+		</div>
+		<div class="m-button">
+	      <button type="button" class="btn-block btn-disabled" id="formSubitBtn">生成借条</button>
+	 </div>
+<!-- 引入jQuery 2.0+ -->
+<script src="js/jquery.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/weui.min.js"></script>
+<script src="js/ydui.js"></script>
+
+<script>
+	  $(function(){
+    
+/*$("#qsgx").picker({
+        title: "",
+        toolbarCloseText:'完成',
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['借款人','出借人'],
+            displayValues:['借款人','出借人'],
+          }
+        ]
+      });
+$("#shgx").picker({
+        title: "",
+        toolbarCloseText:'完成',
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['同学','同事','朋友'],
+            displayValues:['同学','同事','朋友'],
+          }
+        ]
+      });*/
+        $('#qsgx').on('click', function () {
+	        weui.picker([{
+	            label: '借款人',
+	            value: "借款人"
+	        }, {
+	            label: '出借人',
+	            value: '出借人'
+	        }], {
+            onChange: function (result) {
+                console.log(result);
+                
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                $("#qsgx").val(result);
+            }
+        });
+    });
+    $('#time10').on('click', function () {
+        weui.datePicker({
+            start: new Date().getFullYear(),
+            end: new Date().getFullYear(),
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                $("#time10").val(result);
+            }
+        });
+    });
+        $('#time11').on('click', function () {
+        weui.datePicker({
+            start: new Date().getFullYear(),
+            end: new Date().getFullYear(),
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                $("#time11").val(result);
+            }
+        });
+    });
+	  });
+	  
+	 
+	!function (win, $) {
+      var dialog = win.YDUI.dialog;
+      
+      $("#purposeLoan").on("click",function(){//借款用途点击
+      	self.location ='purposeLoan.html';
+			})
+      $(".agreement-margin .cell-left").on("click",function(){//点击协议
+			if($(".agreement-margin").attr('tabindex')=='flase'){
+				$('.agreement-margin img').attr("src",'img/invalidName@3x-bian.png');
+				$(".agreement-margin").attr('tabindex','true');
+			}else{
+				$('.agreement-margin img').attr("src",'img/invalidName@3x.png');
+				$(".agreement-margin").attr('tabindex','flase');
+			}
+		})
+	}(window, jQuery);
+
+</script>
+</body>
+</html>
